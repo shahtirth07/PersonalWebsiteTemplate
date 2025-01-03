@@ -28,7 +28,15 @@ a, .btn {
 
 /* Desktop Navigation */
 
-nav, .nav-links {
+#desktop-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+}
+
+nav, 
+.nav-links {
   display: flex;
 }
 
