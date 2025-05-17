@@ -6,7 +6,7 @@
 .contact-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #6c2eb7;
+  color: var(--section-title-color);
   margin-left: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -22,14 +22,15 @@
 .contact-info {
   flex: 1;
   padding: 2rem;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 1.5rem;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  color: var(--text-primary);
 }
 
 .contact-info h3 {
   font-size: 1.5rem;
-  color: #222;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
@@ -58,9 +59,10 @@
 .contact-form {
   flex: 1.5;
   padding: 2rem;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 1.5rem;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  color: var(--text-primary);
 }
 
 .form-group {
@@ -75,6 +77,15 @@
   border-radius: 0.8rem;
   font-size: 1rem;
   transition: border-color 0.2s;
+  background: #fff;
+  color: var(--text-primary);
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group textarea {
+  background: #181818;
+  color: #f4f4f4;
+  border: 2px solid #333;
 }
 
 .form-group input:focus,

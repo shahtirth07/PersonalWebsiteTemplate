@@ -47,7 +47,7 @@
 .about-title {
   font-size: 3rem;
   font-weight: 700;
-  color: #222;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
@@ -57,7 +57,7 @@
 
 .about-subtitle {
   font-size: 1.5rem;
-  color: #666;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
   font-weight: 500;
 }

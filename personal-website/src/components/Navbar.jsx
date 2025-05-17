@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
   return (
     <nav className="navbar">
       <div className="nav-content">
@@ -12,6 +12,9 @@ const Navbar = () => {
           <a href="#education" className="nav-link">Education</a>
           <a href="#projects" className="nav-link">Projects</a>
           <a href="#contact" className="nav-link">Contact</a>
+          <button className="theme-toggle-btn" onClick={toggleTheme} aria-label="Toggle theme">
+            {theme === 'dark' ? '🌙' : '☀️'}
+          </button>
         </div>
       </div>
     </nav>

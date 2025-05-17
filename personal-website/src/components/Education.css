@@ -6,7 +6,7 @@
 .education-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #6c2eb7;
+  color: var(--section-title-color);
   margin-left: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -20,7 +20,7 @@
 }
 
 .education-card {
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 1.5rem;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
   padding: 2rem 2rem 1.5rem 2rem;
@@ -29,6 +29,7 @@
   border-left: 5px solid #6c2eb7;
   position: relative;
   transition: box-shadow 0.2s, transform 0.2s;
+  color: var(--text-primary);
 }
 
 .education-card:hover {
@@ -162,4 +163,8 @@
   .education-list li {
     text-align: left;
   }
+}
+
+.education-section h2 {
+  color: var(--section-title-color);
 } 
