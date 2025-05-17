@@ -1,5 +1,5 @@
 .footer {
-  background: #fff;
+  background: var(--footer-bg);
   padding: 2rem 0;
   margin-top: 4rem;
   border-top: 1px solid #eee;
@@ -38,6 +38,10 @@
 
 .social-link:hover img {
   opacity: 1;
+}
+
+.dark-theme .social-link img {
+  filter: brightness(0) invert(1);
 }
 
 .cv-download {

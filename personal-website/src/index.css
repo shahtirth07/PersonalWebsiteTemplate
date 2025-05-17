@@ -21,6 +21,7 @@
   --card-bg: rgba(255, 255, 255, 0.9);
   --navbar-bg: rgba(255, 255, 255, 0.95);
   --section-title-color: var(--primary-color);
+  --footer-bg: #fff;
 }
 
 .dark-theme {
@@ -33,6 +34,7 @@
   --card-bg: rgba(30, 30, 30, 0.98);
   --navbar-bg: rgba(20, 20, 20, 0.95);
   --section-title-color: #b39ddb;
+  --footer-bg: #181818;
 }
 
 body.dark-theme {
