@@ -6,6 +6,7 @@ import Experience from './components/Experience'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import TechnicalSkills from './components/TechnicalSkills';
 import './App.css'
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <About />
       <Projects />
+      <TechnicalSkills />
       <Experience />
       <Education />
       <Contact />
