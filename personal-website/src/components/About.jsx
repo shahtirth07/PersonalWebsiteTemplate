@@ -1,17 +1,17 @@
 import React from 'react';
 import './About.css';
-import aboutPic from '../assets/about-pic.jpg';
+// import aboutPic from '../assets/about-pic.jpg';
 
 const About = () => {
   return (
     <section id="about" className="about-section">
       <div className="about-container">
         <div className="about-image-container">
-          <img 
+          {/* <img 
             src={aboutPic}
             alt="Tirth Shah" 
             className="about-image"
-          />
+          /> */}
         </div>
         <div className="about-content">
           <h1 className="about-title">Hi, I'm <span className="highlight">Tirth Shah</span></h1>
