@@ -14,6 +14,38 @@ import nodeLogo from '../assets/node.svg';
 import mongodbLogo from '../assets/mongodb.svg';
 import kubernetesLogo from '../assets/kubernetes.svg';
 import springbootLogo from '../assets/springboot.svg';
+import groovyLogo from '../assets/groovy.svg';
+import scalaLogo from '../assets/scala.svg';
+import html5Logo from '../assets/html5.svg';
+import css3Logo from '../assets/css3.svg';
+import xmlLogo from '../assets/xml.svg';
+import mysqlLogo from '../assets/mysql.svg';
+import csharpLogo from '../assets/csharp.svg';
+import dartLogo from '../assets/dart.svg';
+import nuxtjsLogo from '../assets/nuxtjs.svg';
+import vuejsLogo from '../assets/vuejs.svg';
+import tensorflowLogo from '../assets/tensorflow.svg';
+import numpyLogo from '../assets/numpy.svg';
+import pandasLogo from '../assets/pandas.svg';
+import scikitlearnLogo from '../assets/scikitlearn.svg';
+import pytorchLogo from '../assets/pytorch.svg';
+import nextjsLogo from '../assets/nextjs.svg';
+import angularjsLogo from '../assets/angularjs.svg';
+import flaskLogo from '../assets/flask.svg';
+import djangoLogo from '../assets/django.svg';
+import flutterLogo from '../assets/flutter.svg';
+import reactnativeLogo from '../assets/reactnative.svg';
+import vscodeLogo from '../assets/vscode.svg';
+import gitlabLogo from '../assets/gitlab.svg';
+import intellijLogo from '../assets/intellij.svg';
+import postmanLogo from '../assets/postman.svg';
+import awsLogo from '../assets/aws.svg';
+import gcpLogo from '../assets/gcp.svg';
+import githubactionsLogo from '../assets/githubactions.svg';
+import bigqueryLogo from '../assets/bigquery.svg';
+import teradataLogo from '../assets/teradata.svg';
+import oracleLogo from '../assets/oracle.svg';
+import apiLogo from '../assets/api.svg';
 // awsLogo skipped due to download issue
 
 const skillLogos = {
@@ -31,6 +63,42 @@ const skillLogos = {
   Kubernetes: kubernetesLogo,
   Springboot: springbootLogo,
   Reactjs: reactLogo,
+  Groovy: groovyLogo,
+  Scala: scalaLogo,
+  'HTML+CSS': html5Logo, // or use both html5Logo and css3Logo if you want to show both
+  XML: xmlLogo,
+  MYSQL: mysqlLogo,
+  'C#': csharpLogo,
+  Dart: dartLogo,
+  Nuxtjs: nuxtjsLogo,
+  Vuejs: vuejsLogo,
+  Lombok: javaLogo,
+  Tensorflow: tensorflowLogo,
+  Numpy: numpyLogo,
+  Pandas: pandasLogo,
+  'Scikit learn': scikitlearnLogo,
+  Pytorch: pytorchLogo,
+  'Next.js': nextjsLogo,
+  AngularJS: angularjsLogo,
+  Flask: flaskLogo,
+  Django: djangoLogo,
+  Flutter: flutterLogo,
+  'React Native': reactnativeLogo,
+  VSCode: vscodeLogo,
+  Gitlab: gitlabLogo,
+  'IntelliJ Idea': intellijLogo,
+  Postman: postmanLogo,
+  AWS: awsLogo,
+  GCP: gcpLogo,
+  'Github Actions': githubactionsLogo,
+  BigQuery: bigqueryLogo,
+  Teradata: teradataLogo,
+  Oracle: oracleLogo,
+  RestAPIs: apiLogo,
+  'Rest APIs': apiLogo,
+  GoogleCloud: gcpLogo,
+  'C++ STL': cppLogo,
+  JPA: javaLogo,
   // Add more mappings as you add SVGs
 };
 
@@ -38,19 +106,19 @@ const skills = [
   {
     category: 'Languages',
     items: [
-      'C/C++', 'Python', 'Java', 'Kotlin', 'Groovy', 'Scala', 'JavaScript', 'HTML+CSS', 'TypeScript', 'XML', 'MYSQL', 'C#', 'SQL (Postgres, MySQL)', 'NoSQL (Firebase, MongoDB)', 'Dart'
+      'C/C++', 'Python', 'Java', 'Kotlin', 'Groovy', 'Scala', 'JavaScript', 'HTML+CSS', 'TypeScript', 'XML', 'MYSQL', 'C#', 'Dart'
     ]
   },
   {
     category: 'Frameworks & Libraries',
     items: [
-      'Springboot', 'Nodejs', 'Nuxtjs', 'Reactjs', 'Vuejs', 'Lombok', '.NET', 'C++ STL', 'Tensorflow', 'Numpy', 'Pandas', 'JPA', 'Scikit learn', 'Pytorch', 'Next.js', 'AngularJS', 'Flask', 'Django', 'Flutter', 'React Native'
+      'Springboot', 'Nodejs', 'Nuxtjs', 'Reactjs', 'Vuejs', 'Lombok', 'C++ STL', 'Tensorflow', 'Numpy', 'Pandas', 'JPA', 'Scikit learn', 'Pytorch', 'Next.js', 'AngularJS', 'Flask', 'Django', 'Flutter', 'React Native'
     ]
   },
   {
     category: 'DevOps & Tools',
     items: [
-      'Nodejs', 'VSCode', 'Git', 'Github', 'Gitlab', 'IntelliJ Idea', 'Docker', 'Kubernetes', 'Rest APIs', 'Postman', 'AWS', 'GCP', 'Github Actions', 'Relational Database(MySQL)', 'BigQuery', 'Teradata', 'Oracle', 'MongoDb', 'GoogleCloud'
+      'Nodejs', 'VSCode', 'Git', 'Github', 'Gitlab', 'IntelliJ Idea', 'Docker', 'Kubernetes', 'Rest APIs', 'Postman', 'AWS', 'GCP', 'Github Actions', 'BigQuery', 'Teradata', 'Oracle', 'MongoDb', 'GoogleCloud'
     ]
   }
 ];

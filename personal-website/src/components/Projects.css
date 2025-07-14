@@ -92,6 +92,31 @@ body.dark-theme .project-card h3 {
   box-shadow: 0 4px 16px rgba(108, 92, 231, 0.18);
 }
 
+.project-description-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-description-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.project-description-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+.project-description-list li:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 700px) {
   .projects-title {
     margin-left: 1rem;

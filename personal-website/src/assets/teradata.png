@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+<html lang="en" class="fonts-loaded">
+<head id="head">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Error404</title>
+<meta property="og:title" content="Error404" />
+<meta property="og:type" content="website" />
+<meta name="twitter:site" content="@teradata" />
+<meta property="article:published_time" content="0001-01-01T00:00:00-08:00" />
+<meta property="article:modified_time" content="0001-01-01T00:00:00-08:00" />
+<script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    if (typeof gtag === 'undefined') {
+        function gtag() { dataLayer.push(arguments); }
+    }
+      
+    gtag('event', 'kenticoPageDetails', {
+        'LastModified': '01/01/0001',
+        'CreatedPublish': '01/01/0001'
+    });
+        
+</script>
+
+
+<link rel="preconnect" href="https://marvel-b1-cdn.bc0a.com/" crossorigin />
+<link rel="dns-prefetch" href="https://marvel-b1-cdn.bc0a.com/" />
+<link rel="preconnect" href="https://www.googletagmanager.com/" crossorigin />
+<link rel="dns-prefetch" href="https://www.googletagmanager.com/" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://js.monitor.azure.com/" crossorigin />
+<link rel="dns-prefetch" href="https://js.monitor.azure.com/" />
+
+<link rel="dns-prefetch" href="https://celebrus.teradata.com/" />
+<link rel="dns-prefetch" href="https://geoip-js.com/" />
+<link rel="dns-prefetch" href="https://www.google-analytics.com/" />
+<script type="text/javascript">
+window.dataLayer = window.dataLayer || [];
+if (typeof gtag === 'undefined') {
+function gtag() { dataLayer.push(arguments); }
+}
+if (localStorage.getItem('consentMode') === null) {
+gtag('consent', 'default', {
+'ad_storage': 'denied',
+'ad_user_data ': 'denied',
+'ad_personalization': 'denied',
+'analytics_storage': 'denied',
+'personalization_storage': 'denied',
+'functionality_storage': 'denied',
+'security_storage': 'denied'
+});
+} else {
+gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+}
+</script>
+<!-- Google Tag Manager -->
+<script type="text/javascript">
+(function (w, d, s, l, i) {
+w[l] = w[l] || []; w[l].push({
+'gtm.start':
+new Date().getTime(), event: 'gtm.js'
+}); var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-MH978LC');</script>
+<!-- End Google Tag Manager -->
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&display=block" />
+<link href="/Content/Styles/compiled/main.css?token=1.3448.0.3447" rel="stylesheet" type="text/css" />
+
+
+<style>.anti-flicker { visibility: hidden !important }</style>
+<script>(function (e, t, p) { var n = document.documentElement, s = { p: [], r: [] }, u = { p: s.p, r: s.r, push: function (e) { s.p.push(e) }, ready: function (e) { s.r.push(e) } }; e.intellimize = u, n.className += " " + p, setTimeout(function () { n.className = n.className.replace(RegExp(" ?" + p), "") }, t) })(window, 4000, 'anti-flicker')</script>
+<link rel="preload" href="https://cdn.intellimize.co/snippet/117395157.js" as="script">
+<script src="https://cdn.intellimize.co/snippet/117395157.js" async onerror="document.documentElement.className = document.documentElement.className.replace(RegExp(' ?anti-flicker'), '');"></script>
+<link rel="preconnect" href="https://api.intellimize.co" crossorigin>
+<link rel="preconnect" href="https://117395157.intellimizeio.com">
+<link rel="preconnect" href="https://log.intellimize.co" crossorigin>
+<script type="text/javascript">!function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+crossOrigin: "anonymous", 
+cfg: { // Application Insights Configuration
+    connectionString: 'InstrumentationKey=9c9b0dec-232f-4b10-b7b6-bffff7e84c2b;IngestionEndpoint=https://westus3-1.in.applicationinsights.azure.com/;ApplicationId=7d208ea3-adcc-4a5f-af63-16ca72bef025'
+}});</script>
+<script src="/js/Celebrus/bsci.js"></script>
+</head>
+<body>
+    <div class="container-wide skip__container">
+        <a href="#title" id="skip" class="button btn-primary skip__main">Skip to main content</a>
+    </div>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MH978LC" style="display: none; visibility: hidden; height: 0px; width: 0px;"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div>
+        <nav>
+            <div class="header-nav-wrapper">
+    <section class="header-utility nav-3 background-grayLight color-navy d-none d-xl-flex">
+        <div class="container-wide d-flex align-items-center">
+            <div class="header-utility__right d-flex">
+                <ul class="header-utility__nav me-4">
+                            <li><a href="https://support.teradata.com/csm" data-gtm-category="header"
+                                    data-gtm-action="utility bar click"
+                                    data-gtm-label="Support">Support</a>
+                            </li>
+                </ul>
+                <section class="td-language-selector">
+    <button data-celebrus="Header - Language Selector" data-gtm-category="header"
+        data-gtm-action="utility bar click" data-gtm-label="language selector" role="combobox"
+        aria-label="Select language" aria-controls="languages" aria-expanded="false" tabindex="0" aria-haspopup="true"
+        class="td-language-selector__toggle selected">Global</button>
+    <select class="td-language-selector__select" size="5" id="languages">
+        <option lang="en-US" class="td-language-selector__menu-item active" selected="selected" id="Global">Global</option>
+        <option lang="de-DE" role="link" data-href="https://www.teradata.de" id="Deutschland" class="td-language-selector__menu-item" data-gtm-category="header" data-gtm-action="utility bar click" data-gtm-label="language selector Deutschland">Deutschland</option>
+        <option lang="fr-FR" role="link" data-href="https://www.teradata.fr" id="France" class="td-language-selector__menu-item" data-gtm-category="header" data-gtm-action="utility bar click" data-gtm-label="language selector France">France</option>
+        <option lang="ja-JP" role="link" data-href="https://www.teradata.jp" id="&#x65E5;&#x672C;" class="td-language-selector__menu-item" data-gtm-category="header" data-gtm-action="utility bar click" data-gtm-label="language selector &#x65E5;&#x672C;">&#x65E5;&#x672C;</option>
+        <option lang="ko-KR" role="link" data-href="https://kr.teradata.com" id="&#xB300;&#xD55C;&#xBBFC;&#xAD6D;" class="td-language-selector__menu-item" data-gtm-category="header" data-gtm-action="utility bar click" data-gtm-label="language selector &#xB300;&#xD55C;&#xBBFC;&#xAD6D;">&#xB300;&#xD55C;&#xBBFC;&#xAD6D;</option>
+    </select>
+</section>
+            </div>
+        </div>
+    </section>
+    <section id="site-header">
+        <header class="header-nav d-none d-xl-flex">
+            <div class="container-wide">
+                <div class="row">
+                    <nav class="col d-flex justify-content-between align-items-center">
+                        <div class="header-nav__element d-flex">
+                            <a class="header-nav__logo" href="/" data-gtm-category="header"
+                                data-gtm-action="header logo click" data-gtm-label="teradata." aria-label="teradata.">
+                                <div>
+                                    <svg class="teradata-logo">
+                                        <use xlink:href="/Content/Assets/svg-defs.svg#teradata-logo"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                        <ul data-menu="headerMainMenu" class="header-nav__main-menu header-nav__element nav-1"
+                            role="menu">
+                                    <li role="presentation"><a href="/why-teradata"
+                                            class="header-nav__main-menu__link" data-gtm-category="header"
+                                            data-gtm-action="glbl nav click" data-gtm-label="Why Teradata"
+                                            data-main-link="Why Teradata" aria-expanded="false" aria-haspopup="true"
+                                            aria-controls="why-teradata"
+                                            role="menuitem">Why Teradata</a></li>
+                                    <li role="presentation"><a href="/platform"
+                                            class="header-nav__main-menu__link" data-gtm-category="header"
+                                            data-gtm-action="glbl nav click" data-gtm-label="Product"
+                                            data-main-link="Product" aria-expanded="false" aria-haspopup="true"
+                                            aria-controls="product"
+                                            role="menuitem">Product</a></li>
+                                    <li role="presentation"><a href="/solutions"
+                                            class="header-nav__main-menu__link" data-gtm-category="header"
+                                            data-gtm-action="glbl nav click" data-gtm-label="Solutions"
+                                            data-main-link="Solutions" aria-expanded="false" aria-haspopup="true"
+                                            aria-controls="solutions"
+                                            role="menuitem">Solutions</a></li>
+                                    <li role="presentation"><a href="/insights"
+                                            class="header-nav__main-menu__link" data-gtm-category="header"
+                                            data-gtm-action="glbl nav click" data-gtm-label="Resources"
+                                            data-main-link="Resources" aria-expanded="false" aria-haspopup="true"
+                                            aria-controls="resources"
+                                            role="menuitem">Resources</a></li>
+                                    <li role="presentation"><a href="/about-us"
+                                            class="header-nav__main-menu__link" data-gtm-category="header"
+                                            data-gtm-action="glbl nav click" data-gtm-label="About us"
+                                            data-main-link="About us" aria-expanded="false" aria-haspopup="true"
+                                            aria-controls="about-us"
+                                            role="menuitem">About us</a></li>
+                        </ul>
+                        <div class="head-nav__alt-menu-wrapper header-nav__element">
+                            <ul class="header-nav__alt-menu d-flex align-items-center justify-content-end relative"
+                                role="menu">
+                                <li role="presentation">
+                                    <button class="header-nav__alt-menu__search d-flex" aria-label="launch search modal"
+                                        data-gtm-category="search" data-gtm-action="search icon click"
+                                        data-main-search="Search" role="menuitem"
+                                        id="search-button">
+                                        <span class="material-symbols-outlined color-slate me-6 md-24">search</span>
+                                    </button>
+                                </li>
+                                <li role="presentation">
+                                    <a class="button button-secondary me-3" href="/getting-started/demos/clearscape-analytics" data-gtm-category="header" data-gtm-action="cta click" data-gtm-label="Try for free" role="menuitem">Try for free</a>
+                                </li>
+                                <li role="presentation">
+                                    <a class="button" href="/about-us/contact" data-gtm-category="header" data-gtm-action="cta click" data-gtm-label="Contact us" role="menuitem">Contact us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <section id="site-vue-nav"></section>
+            <section id="vue-search__drop-section"></section>
+        </header>
+        <header class="header-nav-mobile d-block d-xl-none">
+            <nav class="d-flex justify-content-between align-items-center px-6 shadow--s">
+                <a class="header-nav__logo d-flex align-items-center" href="/" data-gtm-category="header"
+                    data-gtm-action="header logo click" data-gtm-label="teradata." aria-label="teradata.">
+                    <div>
+                        <svg class="teradata-logo">
+                            <use xlink:href="/Content/Assets/svg-defs.svg#teradata-logo">
+                            </use>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="header-nav-mobile__top-links">
+                    <li>
+                        <button data-vue-trigger="header-nav-mobile__search"
+                            v-click.prevent="mobileSearchOpen = !mobileSearchOpen; mobileOpen = false"
+                            class="header-nav-mobile__search-link" data-gtm-action="search icon click"
+                            data-gtm-category="search" data-gtm-label="search" aria-label="Header - Search Mobile">
+                            <span class="material-symbols-outlined md-24">search</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button data-vue-trigger="header-nav-mobile__menu"
+                            aria-label="Click or Press enter to open menu" tabindex="0"
+                            data-gtm-action="hamburger nav click" data-gtm-category="header"
+                            class="header-nav-mobile__menu-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <section id="vue-mobile-slide"></section>
+        </header>
+        <div id="vue-blackout"></div>
+    </section>
+</div>
+        </nav>
+        <main id="maincontent" class=with-notification>
+            <section class="media-showcase">
+    <div class="media-showcase__container d-flex flex-row align-items-center container-wide">
+        <div class="media-showcase__text">
+            <div class="hero_banner__content--wrapper">
+                <div class="label-hasIcon d-inline-flex align-items-center mb-2"><span class="material-symbols-outlined md-24 color-orange me-2">help</span> <span>Uh-oh!</span></div>
+                <h1 class="hero_banner__heading h1--plus">You want the most reliable info, right?</h1>
+
+                <p class="hero_banner__subheading">We like to keep it fresh at Teradata.com. That&#x2019;s why we remove outdated content, products, and pages. Try one of the options below or hit our Resource Center for the hottest analytics info.</p>
+
+                <div class="hero_banner_cta-wrapper d-block d-lg-flex align-items-center mt-2">
+                    <a data-gtm-action="CTA click" data-gtm-label="Home" href="/" class="button button-secondary">Home</a>
+                </div>
+            </div>
+        </div>
+        <div class="media-showcase__media-container d-flex align-items-center justify-content-center">
+            <div class="media-selector__media-item image-edge">
+                <div class="afterglow">
+                    <img src="/Content/Assets/TER-404-hero.jpeg" alt="Business man searching for something" class="media-selector__media-item--img hero-img border12">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="double-rich-text text-left section-padding__thin">
+    <div class="container-wide">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="fr-view">
+                    <div class="h3">Suggestions</div>
+                    <ul>
+                        <li><a href="/why-teradata">Why Teradata</a></li>
+                        <li><a href="/platform">Our platform</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="fr-view">
+                    <div class="h3">Explore recent articles</div>
+                    <ul>
+                                <li><a href="/insights/ai-and-machine-learning/on-prem-ai">Powering Enterprise AI With On-Prem Solutions: Control, Compliance, and Confidence</a></li>
+                                <li><a href="/insights/data-architecture/ai-data-architecture">Building a Trusted AI Data Architecture: The Foundation of Scalable Intelligence</a></li>
+                                <li><a href="/insights/ai-and-machine-learning/ai-native-telco-b2b-innovation">Beyond the Pipe: How the AI-Native Telco Becomes an Essential B2B Innovation Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">  
+    clarity("set", "pageType", "404");
+</script>
+           
+
+<section class="background-grayLight">
+    <aside class="be-ix-link-block">
+            
+    </aside>
+</section>
+
+        </main>
+        <footer class="footer-nav background-grayLight">
+        <script type="text/javascript">document.getElementById('maincontent').classList.remove('with-notification');</script>
+    <section class="container-wide">
+            <ul class="row footer-nav__desktop d-none d-xl-flex">
+                        <li class="col-12 col-md">
+                            <div>
+                                <span class="h4 fontWeight-semiBold">Why Teradata</span>
+                                <ul>
+                                    <li>
+                                        <a href="/why-teradata" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Why we&#x27;re trusted | /why-teradata">Why we&#x27;re trusted</a>
+                                    </li>
+                                    <li>
+                                        <a href="/trusted-ai" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Trusted AI | /trusted-ai">Trusted AI</a>
+                                    </li>
+                                    <li>
+                                        <a href="/trust-security-center" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Trust &amp; Security Center | /trust-security-center">Trust &amp; Security Center</a>
+                                    </li>
+                                    <li>
+                                        <a href="/customers" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Success stories | /customers">Success stories</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about-us/awards" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Awards &amp; recognition | /about-us/awards">Awards &amp; recognition</a>
+                                    </li>
+                                    <li>
+                                        <a href="/insights/analyst-content" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Analyst reports | /insights/analyst-content">Analyst reports</a>
+                                    </li>
+                                    <li>
+                                        <a href="/why-teradata/business-value" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Business value &amp; ROI | /why-teradata/business-value">Business value &amp; ROI</a>
+                                    </li>
+                                    <li>
+                                        <a href="/platform/deployment" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Deployment | /platform/deployment">Deployment</a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </li>
+                        <li class="col-12 col-md">
+                            <div>
+                                <span class="h4 fontWeight-semiBold">Product</span>
+                                <ul>
+                                    <li>
+                                        <a href="/platform/vantagecloud" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Teradata VantageCloud | /platform/vantagecloud">Teradata VantageCloud</a>
+                                    </li>
+                                    <li>
+                                        <a href="/platform/deployment/on-premises" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Teradata on premises | /platform/deployment/on-premises">Teradata on premises</a>
+                                    </li>
+                                    <li>
+                                        <a href="/platform/ai-unlimited" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Teradata AI Unlimited | /platform/ai-unlimited">Teradata AI Unlimited</a>
+                                    </li>
+                                    <li>
+                                        <a href="/platform/clearscape-analytics" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="ClearScape Analytics | /platform/clearscape-analytics">ClearScape Analytics</a>
+                                    </li>
+                                    <li>
+                                        <a href="/platform/workloads" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Workloads | /platform/workloads">Workloads</a>
+                                    </li>
+                                    <li>
+                                        <a href="/getting-started/pricing" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Consumption pricing | /getting-started/pricing">Consumption pricing</a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </li>
+                        <li class="col-12 col-md">
+                            <div>
+                                <span class="h4 fontWeight-semiBold">Solutions</span>
+                                <ul>
+                                    <li>
+                                        <a href="/industries" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Industries | /industries">Industries</a>
+                                    </li>
+                                    <li>
+                                        <a href="/solutions/customer-experience" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Customer experience (CX) | /solutions/customer-experience">Customer experience (CX)</a>
+                                    </li>
+                                    <li>
+                                        <a href="/solutions/finance-transformation" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Finance transformation | /solutions/finance-transformation">Finance transformation</a>
+                                    </li>
+                                    <li>
+                                        <a href="/solutions/fraud-prevention" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Fraud prevention | /solutions/fraud-prevention">Fraud prevention</a>
+                                    </li>
+                                    <li>
+                                        <a href="/solutions/dynamic-supply-chain" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Supply chain logistics | /solutions/dynamic-supply-chain">Supply chain logistics</a>
+                                    </li>
+                                    <li>
+                                        <a href="/solutions/business-use-cases" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Use cases | /solutions/business-use-cases">Use cases</a>
+                                    </li>
+                                    <li>
+                                        <a href="/partners" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Partners | /partners">Partners</a>
+                                    </li>
+                                    <li class="d-flex justify-content-start align-items-center">
+                                        <a href="https://teradata.my.site.com/teradataPRM/s/login/" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Partner portal login | https://teradata.my.site.com/teradataPRM/s/login/">Partner portal login</a>
+                                        <span class="material-symbols-outlined md-16 ms-2">open_in_new</span>
+                                    </li>
+                                    <li>
+                                        <a href="/why-teradata/teradata-services" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Services | /why-teradata/teradata-services">Services</a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </li>
+                        <li class="col-12 col-md">
+                            <div>
+                                <span class="h4 fontWeight-semiBold">Resources</span>
+                                <ul>
+                                    <li>
+                                        <a href="/insights/ai-and-machine-learning" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="AI/ML | /insights/ai-and-machine-learning">AI/ML</a>
+                                    </li>
+                                    <li>
+                                        <a href="/insights/cloud-data-analytics" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Cloud data analytics | /insights/cloud-data-analytics">Cloud data analytics</a>
+                                    </li>
+                                    <li>
+                                        <a href="/insights/data-architecture" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Data architecture | /insights/data-architecture">Data architecture</a>
+                                    </li>
+                                    <li>
+                                        <a href="/insights/data-platform" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Data platform | /insights/data-platform">Data platform</a>
+                                    </li>
+                                    <li>
+                                        <a href="/insights/data-security" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Data security | /insights/data-security">Data security</a>
+                                    </li>
+                                    <li>
+                                        <a href="/university/overview" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Teradata University | /university/overview">Teradata University</a>
+                                    </li>
+                                    <li>
+                                        <a href="/insights/webinars" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Webinars | /insights/webinars">Webinars</a>
+                                    </li>
+                                    <li>
+                                        <a href="/getting-started/demos" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Demo hub | /getting-started/demos">Demo hub</a>
+                                    </li>
+                                    <li>
+                                        <a href="/glossary" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Glossary | /glossary">Glossary</a>
+                                    </li>
+                                    <li class="d-flex justify-content-start align-items-center">
+                                        <a href="https://developers.teradata.com/" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Developer portal | https://developers.teradata.com/">Developer portal</a>
+                                        <span class="material-symbols-outlined md-16 ms-2">open_in_new</span>
+                                    </li>
+                                    <li class="d-flex justify-content-start align-items-center">
+                                        <a href="https://support.teradata.com/csm" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Support portal | https://support.teradata.com/csm">Support portal</a>
+                                        <span class="material-symbols-outlined md-16 ms-2">open_in_new</span>
+                                    </li>
+                            </ul>
+                        </div>
+                    </li>
+                        <li class="col-12 col-md">
+                            <div>
+                                <span class="h4 fontWeight-semiBold">About us</span>
+                                <ul>
+                                    <li>
+                                        <a href="/about-us" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Who we are | /about-us">Who we are</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about-us/leadership" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Our leadership | /about-us/leadership">Our leadership</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about-us/our-story" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Our story | /about-us/our-story">Our story</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about-us/environmental-social-governance" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Sustainability | /about-us/environmental-social-governance">Sustainability</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about-us/inclusion-and-diversity" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="People &amp; culture | /about-us/inclusion-and-diversity">People &amp; culture</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about-us/teradata-cares" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Teradata Cares | /about-us/teradata-cares">Teradata Cares</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about-us/careers" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Careers | /about-us/careers">Careers</a>
+                                    </li>
+                                    <li>
+                                        <a href="/events" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Events | /events">Events</a>
+                                    </li>
+                                    <li>
+                                        <a href="/getting-started/executive-briefing-center" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Executive Briefing Center | /getting-started/executive-briefing-center">Executive Briefing Center</a>
+                                    </li>
+                                    <li>
+                                        <a href="/newsroom" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Newsroom | /newsroom">Newsroom</a>
+                                    </li>
+                                    <li class="d-flex justify-content-start align-items-center">
+                                        <a href="https://investor.teradata.com" data-gtm-category="Footer" data-gtm-action="footer nav click" data-gtm-label="Investors | https://investor.teradata.com">Investors</a>
+                                        <span class="material-symbols-outlined md-16 ms-2">open_in_new</span>
+                                    </li>
+                            </ul>
+                        </div>
+                    </li>
+            <li class="col-12 col-md">
+                <span class=h4>Social media</span>
+                <ul class="footer_social">
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.linkedin.com/company/teradata" href="https://www.linkedin.com/company/teradata" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on LinkedIn">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.linkedin.com/company/teradata">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.linkedin.com/company/teradata" xlink:href="/Content/Assets/svg-defs.svg#icon-social-linkedIn"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.youtube.com/user/teradata" href="https://www.youtube.com/user/teradata" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on Youtube">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.youtube.com/user/teradata">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.youtube.com/user/teradata" xlink:href="/Content/Assets/svg-defs.svg#icon-social-youTube"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.facebook.com/Teradata" href="https://www.facebook.com/Teradata" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on Facebook">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.facebook.com/Teradata">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.facebook.com/Teradata" xlink:href="/Content/Assets/svg-defs.svg#icon-social-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.instagram.com/teradata/" href="https://www.instagram.com/teradata/" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on Instagram">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.instagram.com/teradata/">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.instagram.com/teradata/" xlink:href="/Content/Assets/svg-defs.svg#icon-social-instagram"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://twitter.com/teradata" href="https://twitter.com/teradata" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on Twitter">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://twitter.com/teradata">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://twitter.com/teradata" xlink:href="/Content/Assets/svg-defs.svg#icon-social-twitter"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="/rss" href="/rss" class="icon-social" aria-label="Social Link - Teradata on RSS">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="/rss">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="/rss" xlink:href="/Content/Assets/svg-defs.svg#icon-social-rss"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <nav class="accordionContent accordionContent-centered d-block d-xl-none footer-nav__mobile">
+                    <details>
+                        <summary class="px-0 py-4 d-flex justify-content-between align-items-center">
+                            <span class="h4 fontWeight-semiBold p-0">Why Teradata</span>
+                            <span class="icon caret"></span>
+                        </summary>
+                        <ul class="pb-4">
+                            <li class="my-3"><a class="nav-2" href="/why-teradata">Why we&#x27;re trusted</a></li>
+                            <li class="my-3"><a class="nav-2" href="/trusted-ai">Trusted AI</a></li>
+                            <li class="my-3"><a class="nav-2" href="/trust-security-center">Trust &amp; Security Center</a></li>
+                            <li class="my-3"><a class="nav-2" href="/customers">Success stories</a></li>
+                            <li class="my-3"><a class="nav-2" href="/about-us/awards">Awards &amp; recognition</a></li>
+                            <li class="my-3"><a class="nav-2" href="/insights/analyst-content">Analyst reports</a></li>
+                            <li class="my-3"><a class="nav-2" href="/why-teradata/business-value">Business value &amp; ROI</a></li>
+                            <li class="my-3"><a class="nav-2" href="/platform/deployment">Deployment</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary class="px-0 py-4 d-flex justify-content-between align-items-center">
+                            <span class="h4 fontWeight-semiBold p-0">Product</span>
+                            <span class="icon caret"></span>
+                        </summary>
+                        <ul class="pb-4">
+                            <li class="my-3"><a class="nav-2" href="/platform/vantagecloud">Teradata VantageCloud</a></li>
+                            <li class="my-3"><a class="nav-2" href="/platform/deployment/on-premises">Teradata on premises</a></li>
+                            <li class="my-3"><a class="nav-2" href="/platform/ai-unlimited">Teradata AI Unlimited</a></li>
+                            <li class="my-3"><a class="nav-2" href="/platform/clearscape-analytics">ClearScape Analytics</a></li>
+                            <li class="my-3"><a class="nav-2" href="/platform/workloads">Workloads</a></li>
+                            <li class="my-3"><a class="nav-2" href="/getting-started/pricing">Consumption pricing</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary class="px-0 py-4 d-flex justify-content-between align-items-center">
+                            <span class="h4 fontWeight-semiBold p-0">Solutions</span>
+                            <span class="icon caret"></span>
+                        </summary>
+                        <ul class="pb-4">
+                            <li class="my-3"><a class="nav-2" href="/industries">Industries</a></li>
+                            <li class="my-3"><a class="nav-2" href="/solutions/customer-experience">Customer experience (CX)</a></li>
+                            <li class="my-3"><a class="nav-2" href="/solutions/finance-transformation">Finance transformation</a></li>
+                            <li class="my-3"><a class="nav-2" href="/solutions/fraud-prevention">Fraud prevention</a></li>
+                            <li class="my-3"><a class="nav-2" href="/solutions/dynamic-supply-chain">Supply chain logistics</a></li>
+                            <li class="my-3"><a class="nav-2" href="/solutions/business-use-cases">Use cases</a></li>
+                            <li class="my-3"><a class="nav-2" href="/partners">Partners</a></li>
+                            <li class="my-3"><a class="nav-2" href="https://teradata.my.site.com/teradataPRM/s/login/">Partner portal login</a></li>
+                            <li class="my-3"><a class="nav-2" href="/why-teradata/teradata-services">Services</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary class="px-0 py-4 d-flex justify-content-between align-items-center">
+                            <span class="h4 fontWeight-semiBold p-0">Resources</span>
+                            <span class="icon caret"></span>
+                        </summary>
+                        <ul class="pb-4">
+                            <li class="my-3"><a class="nav-2" href="/insights/ai-and-machine-learning">AI/ML</a></li>
+                            <li class="my-3"><a class="nav-2" href="/insights/cloud-data-analytics">Cloud data analytics</a></li>
+                            <li class="my-3"><a class="nav-2" href="/insights/data-architecture">Data architecture</a></li>
+                            <li class="my-3"><a class="nav-2" href="/insights/data-platform">Data platform</a></li>
+                            <li class="my-3"><a class="nav-2" href="/insights/data-security">Data security</a></li>
+                            <li class="my-3"><a class="nav-2" href="/university/overview">Teradata University</a></li>
+                            <li class="my-3"><a class="nav-2" href="/insights/webinars">Webinars</a></li>
+                            <li class="my-3"><a class="nav-2" href="/getting-started/demos">Demo hub</a></li>
+                            <li class="my-3"><a class="nav-2" href="/glossary">Glossary</a></li>
+                            <li class="my-3"><a class="nav-2" href="https://developers.teradata.com/">Developer portal</a></li>
+                            <li class="my-3"><a class="nav-2" href="https://support.teradata.com/csm">Support portal</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary class="px-0 py-4 d-flex justify-content-between align-items-center">
+                            <span class="h4 fontWeight-semiBold p-0">About us</span>
+                            <span class="icon caret"></span>
+                        </summary>
+                        <ul class="pb-4">
+                            <li class="my-3"><a class="nav-2" href="/about-us">Who we are</a></li>
+                            <li class="my-3"><a class="nav-2" href="/about-us/leadership">Our leadership</a></li>
+                            <li class="my-3"><a class="nav-2" href="/about-us/our-story">Our story</a></li>
+                            <li class="my-3"><a class="nav-2" href="/about-us/environmental-social-governance">Sustainability</a></li>
+                            <li class="my-3"><a class="nav-2" href="/about-us/inclusion-and-diversity">People &amp; culture</a></li>
+                            <li class="my-3"><a class="nav-2" href="/about-us/teradata-cares">Teradata Cares</a></li>
+                            <li class="my-3"><a class="nav-2" href="/about-us/careers">Careers</a></li>
+                            <li class="my-3"><a class="nav-2" href="/events">Events</a></li>
+                            <li class="my-3"><a class="nav-2" href="/getting-started/executive-briefing-center">Executive Briefing Center</a></li>
+                            <li class="my-3"><a class="nav-2" href="/newsroom">Newsroom</a></li>
+                            <li class="my-3"><a class="nav-2" href="https://investor.teradata.com">Investors</a></li>
+                        </ul>
+                    </details>
+            <nav class="my-7">
+                <span class=h4>Social media</span>
+                <ul class="footer_social">
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.linkedin.com/company/teradata" href="https://www.linkedin.com/company/teradata" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on LinkedIn">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.linkedin.com/company/teradata">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.linkedin.com/company/teradata" xlink:href="/Content/Assets/svg-defs.svg#icon-social-linkedIn"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.youtube.com/user/teradata" href="https://www.youtube.com/user/teradata" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on Youtube">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.youtube.com/user/teradata">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.youtube.com/user/teradata" xlink:href="/Content/Assets/svg-defs.svg#icon-social-youTube"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.facebook.com/Teradata" href="https://www.facebook.com/Teradata" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on Facebook">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.facebook.com/Teradata">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.facebook.com/Teradata" xlink:href="/Content/Assets/svg-defs.svg#icon-social-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.instagram.com/teradata/" href="https://www.instagram.com/teradata/" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on Instagram">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.instagram.com/teradata/">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://www.instagram.com/teradata/" xlink:href="/Content/Assets/svg-defs.svg#icon-social-instagram"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://twitter.com/teradata" href="https://twitter.com/teradata" class="icon-social" target="_blank" rel="noopener" aria-label="Social Link - Teradata on Twitter">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://twitter.com/teradata">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="https://twitter.com/teradata" xlink:href="/Content/Assets/svg-defs.svg#icon-social-twitter"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="/rss" href="/rss" class="icon-social" aria-label="Social Link - Teradata on RSS">
+                            <svg data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="/rss">
+                                <use data-gtm-category="Footer" data-gtm-action="social click" data-gtm-label="/rss" xlink:href="/Content/Assets/svg-defs.svg#icon-social-rss"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </nav>
+
+        <div class="row footer-nav__baseline border-top-medium">
+            <div class="col-12 col-lg-3 col-xl-4 px-lg-0">
+                <span class="copyright">©2025 Teradata. All Rights Reserved</span>
+            </div>
+            <div class="col-12 col-lg-9 col-xl-8 d-flex justify-content-lg-end px-lg-0">
+                <ul class="d-flex flex-wrap justify-content-between">
+                    <li><a href="/privacy">Privacy</a></li>   
+                    <li><a href="/privacy#do-not-sell-share">Don&#x2019;t Sell/Share My Info</a></li>   
+                    <li><a href="/legal/terms-of-use">Terms of use</a></li>   
+                    <li><a href="/legal/legal-notice">Legal</a></li>   
+                    <li><a href="/product-support-policy">Support Policies</a></li>   
+                    <li><a href="#tracking-consent">Tracking Consent</a></li>   
+                </ul>
+            </div>
+        </div>
+    </section>
+</footer>
+    </div>
+        <script src="https://static.cloud.coveo.com/atomic/v2/atomic.esm.js" type="module"></script>
+        <script src="/Content/Scripts/dist/Pages/scripts.min.js?token=1.3448.0.3447" defer></script>
+    
+</body>
+</html>

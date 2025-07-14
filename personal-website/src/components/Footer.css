@@ -1,3 +1,13 @@
+:root {
+  --devpost-circle: #bdbdbd;
+  --devpost-text: #222;
+}
+
+body.dark-theme {
+  --devpost-circle: #e0e6f5;
+  --devpost-text: #fff;
+}
+
 .footer {
   background: var(--footer-bg);
   padding: 2rem 0;

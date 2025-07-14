@@ -58,9 +58,9 @@ const Projects = () => (
           <img src={project.image} alt={project.title} className="project-img" />
           <h3>{project.title}</h3>
           {project.description && (
-            <ul style={{ textAlign: 'left', marginBottom: '1rem' }}>
+            <ul className="project-description-list" style={{ marginBottom: '1rem' }}>
               {project.description.map((desc, i) => (
-                <li key={i} style={{ fontSize: '0.95rem', marginBottom: '0.5rem' }}>{desc}</li>
+                <li key={i}>{desc}</li>
               ))}
             </ul>
           )}

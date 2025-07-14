@@ -12,6 +12,7 @@ const experienceData = [
     duration: 'May 2025 – Present',
     location: 'Chico, CA',
     logo: chicostateLogo,
+    linkedin: 'https://www.csuchico.edu/index.shtml',
     responsibilities: [
       'Leading development of SAP-UCC portal used by 10K+ users across 30+ institutions; defined system architecture and introduced mono-repo with Node.js, React-Redux, and Tailwind.',
       'Built 40+ REST APIs (300 endpoints) with <250ms latency; implemented RBAC, JWT auth, and cron jobs to automate cleanup of 100K+ tokens/week.',
@@ -23,7 +24,8 @@ const experienceData = [
     position: 'Associate Member Of Technical Staff / Associate Engineer / Product Intern',
     duration: 'October 2021 – July 2024',
     location: 'Pune, IN',
-    logo: datameticaLogo,
+    logo: 'https://media.licdn.com/dms/image/v2/D4E0BAQHvNEL6eK0t1A/company-logo_200_200/B4EZcXwrWxHIAI-/0/1748450326390/datametica_birds_logo?e=1755129600&v=beta&t=HUc0iJVbJ_ghDSsU5uGcwsnKAInw31g1kUJLy2EzPnI',
+    linkedin: 'https://www.linkedin.com/company/datametica-birds/posts/?feedView=all',
     responsibilities: [
       'Spearheaded development of data migration tools for the Raven product suite, enhancing support for DataStage and building new tools for Informatica and Alteryx.',
       'Designed and implemented advanced data generator tools using Groovy and Scala, producing over 1 million synthetic records and improving query performance, reducing testing time by 30 hours monthly.',
@@ -37,6 +39,7 @@ const experienceData = [
     duration: 'July 2021 – Sept 2021',
     location: 'Remote',
     logo: incubeLogo,
+    linkedin: 'https://www.linkedin.com/company/6dvarsity/posts/?feedView=all',
     responsibilities: [
       "Developed a book recommendation system for the 'Ask Anjlee' AI solution using BERT, sentence transformers, and NLP techniques with spaCy and NLTK to provide personalized educational support for underprivileged children."
     ]
@@ -47,6 +50,7 @@ const experienceData = [
     duration: 'Dec 2020 – Jan 2021',
     location: 'Pune, IN',
     logo: technikeinLogo,
+    linkedin: 'https://www.linkedin.com/company/technikien/',
     responsibilities: [
       'Designed and programmed circuits using both C and Assembly languages, focusing on Arduino microcontroller development.'
     ]
@@ -62,7 +66,13 @@ const Experience = () => (
           <div className="experience-header">
             {exp.logo && (
               <div className="experience-logo-container">
-                <img src={exp.logo} alt={`${exp.company} logo`} className="experience-logo" />
+                {exp.linkedin ? (
+                  <a href={exp.linkedin} target="_blank" rel="noopener noreferrer">
+                    <img src={exp.logo} alt={`${exp.company} logo`} className="experience-logo" />
+                  </a>
+                ) : (
+                  <img src={exp.logo} alt={`${exp.company} logo`} className="experience-logo" />
+                )}
               </div>
             )}
             <div className="experience-info">

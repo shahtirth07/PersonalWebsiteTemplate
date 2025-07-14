@@ -10,6 +10,7 @@ const educationData = [
     duration: 'May 2026',
     location: 'Chico, CA',
     logo: csuChicoLogo,
+    linkedin: 'https://www.csuchico.edu/index.shtml',
     details: [
       'CGPA: 3.7/4'
     ]
@@ -20,6 +21,7 @@ const educationData = [
     duration: 'May 2022',
     location: 'Pune, IN',
     logo: aissmsLogo,
+    linkedin: 'https://aissmsioit.org',
     details: []
   }
 ];
@@ -33,7 +35,13 @@ const Education = () => (
           <div className="education-header">
             {edu.logo && (
               <div className="education-logo-container">
-                <img src={edu.logo} alt={`${edu.institution} logo`} className="education-logo" />
+                {edu.linkedin ? (
+                  <a href={edu.linkedin} target="_blank" rel="noopener noreferrer">
+                    <img src={edu.logo} alt={`${edu.institution} logo`} className="education-logo" />
+                  </a>
+                ) : (
+                  <img src={edu.logo} alt={`${edu.institution} logo`} className="education-logo" />
+                )}
               </div>
             )}
             <div className="education-info">
