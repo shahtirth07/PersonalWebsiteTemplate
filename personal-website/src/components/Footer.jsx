@@ -51,14 +51,14 @@ const Footer = () => {
             <DevpostIcon />
           </a>
         </div>
-        <a 
-          href="/TirthResume.pdf"
+        {/* <a 
+          href="TirthResume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="cv-download"
         >
           View Resume
-        </a>
+        </a> */}
         <p className="copyright">© 2025 Tirth Shah. All rights reserved.</p>
       </div>
     </footer>
