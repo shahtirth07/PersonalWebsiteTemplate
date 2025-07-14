@@ -1,0 +1,208 @@
+body {
+  background: #f7f7fa;
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  letter-spacing: 1px;
+  z-index: 1001;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Hamburger menu styles - always visible for debug, with background */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  background: #fff !important;
+  border: 2px solid #6c2eb7 !important;
+  border-radius: 8px;
+  position: relative;
+  z-index: 2000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #6c2eb7;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu .nav-link {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+.mobile-theme-btn {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-content {
+    width: 100%; /* avoid 100vw overflow */
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  .desktop-menu {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%; /* use percentage instead of 100vw to avoid overflow */
+    height: 100vh;
+    background: var(--navbar-bg);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  .mobile-menu.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-content {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 2rem;
+  }
+  .desktop-menu {
+    display: flex;
+  }
+  .hamburger, .mobile-menu {
+    display: none;
+  }
+}
+
+/* Ensure body doesn't scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+} 
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+} 
