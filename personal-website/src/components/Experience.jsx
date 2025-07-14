@@ -3,8 +3,21 @@ import './Experience.css';
 import datameticaLogo from '../assets/datametica_logo.jpeg';
 import incubeLogo from '../assets/incubedigital_logo.jpeg';
 import technikeinLogo from '../assets/technikien.jpeg';
+import chicostateLogo from '../assets/chicostateenterprises_logo.jpeg';
 
 const experienceData = [
+  {
+    company: 'Chico State University – SAP UCC Project',
+    position: 'Team Lead / Full-Stack Engineer Intern',
+    duration: 'May 2025 – Present',
+    location: 'Chico, CA',
+    logo: chicostateLogo,
+    responsibilities: [
+      'Leading development of SAP-UCC portal used by 10K+ users across 30+ institutions; defined system architecture and introduced mono-repo with Node.js, React-Redux, and Tailwind.',
+      'Built 40+ REST APIs (300 endpoints) with <250ms latency; implemented RBAC, JWT auth, and cron jobs to automate cleanup of 100K+ tokens/week.',
+      'Integrated CI/CD (GitHub Actions, Jest), EJS-based email workflows, and Winston logging, boosting engagement by 25%, test coverage to 78%, and reducing debugging time by 60%.'
+    ]
+  },
   {
     company: 'Onix Datametica Birds (Formerly Datametica Pvt Ltd)',
     position: 'Associate Member Of Technical Staff / Associate Engineer / Product Intern',

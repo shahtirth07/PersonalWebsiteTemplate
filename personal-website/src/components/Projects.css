@@ -12,11 +12,17 @@
 }
 
 .projects-scroll {
-  display: flex;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 1rem 2rem 2rem 2rem;
-  scroll-snap-type: x mandatory;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1100px) {
+  .projects-scroll {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .project-card {
@@ -87,11 +93,14 @@ body.dark-theme .project-card h3 {
     margin-left: 1rem;
   }
   .projects-scroll {
-    padding: 1rem 0.5rem 2rem 0.5rem;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem 2rem 1rem;
+    gap: 1.5rem;
+    overflow-x: hidden;
   }
   .project-card {
-    min-width: 90vw;
-    max-width: 95vw;
+    min-width: 100%;
+    max-width: 100%;
   }
 } 
