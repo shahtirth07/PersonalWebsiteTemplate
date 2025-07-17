@@ -60,14 +60,14 @@ const Footer = () => {
             <DevpostIcon />
           </a>
         </div>
-        {/* <a 
+        <a 
           href="TirthResume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="cv-download"
         >
           View Resume
-        </a> */}
+        </a>
         <p className="copyright">Made with <span role="img" aria-label="love">❤️</span> by Tirth Shah</p>
       </div>
     </footer>
