@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>WebGL Shapes and Gradients</title>
+
+<script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/webgl-utils.js"></script>
+<script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/webgl-debug.js"></script>
+<script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/cuon-matrix.js"></script>
+<script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/cuon-utils.js"></script>
+
+<script> 
+var VSHADER_SOURCE =
+  'attribute vec4 a_Position;\n' +
+  'attribute vec4 a_Color;\n' +
+  'uniform mat4 u_ModelMatrix;\n' +
+  'varying vec4 v_Color;\n' +
+  'void main() {\n' +
+  '  gl_Position = u_ModelMatrix * a_Position;\n' +
+  '  v_Color = a_Color;\n' +
+  '}\n';
+
+var FSHADER_SOURCE =
+  '#ifdef GL_ES\n' +
+  'precision mediump float;\n' +
+  '#endif\n' +
+  'varying vec4 v_Color;\n' +
+  'void main() {\n' +
+  '  gl_FragColor = v_Color;\n' +
+  '}\n';
+
+var gl;
+var u_ModelMatrix;
+var currentRotation = 0.0;
+
+function main(){
+    var canvas = document.getElementById('webgl');
+    gl = getWebGLContext(canvas);
+    if (!gl) {
+        console.log('Failed to get the rendering context for WebGL');
+        return;
+    }
+
+    if (!initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE)) {
+        console.log('Failed to intialize shaders.');
+        return;
+    }
+
+    u_ModelMatrix = gl.getUniformLocation(gl.program, 'u_ModelMatrix');
+    if (!u_ModelMatrix) {
+        console.log('Failed to get the storage location of u_ModelMatrix');
+        return;
+    }
+
+    gl.clearColor(0.8, 0.8, 0.8, 1.0);
+
+    
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            rotateLeft();
+        } else if (event.key === 'ArrowRight') {
+            rotateRight();
+        }
+    });
+
+    draw();
+}
+
+function rotateLeft() {
+    currentRotation += 15.0; 
+    draw();
+}
+
+function rotateRight() {
+    currentRotation -= 15.0;
+    draw();
+}
+
+function draw() {
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    drawGradientSquare();
+    
+    drawGradientTriangle();
+    
+    drawNestedSquares();
+}
+
+function drawGradientSquare() {
+    var vertices = new Float32Array([
+        -0.4,  0.4,
+         0.0,  0.4,
+         0.0,  0.0,
+        -0.4,  0.0
+    ]);
+
+    var colors = new Float32Array([
+        0.0, 1.0, 1.0, 1.0,
+        1.0, 0.0, 1.0, 1.0,
+        0.0, 0.0, 1.0, 1.0,
+        0.0, 0.0, 1.0, 1.0
+    ]);
+
+    drawShape(vertices, colors, gl.TRIANGLE_FAN, 4, -0.4, 0.4);
+}
+
+function drawGradientTriangle() {
+    var vertices = new Float32Array([
+        0.0,  0.4,
+        -0.2, 0.0,
+        0.2,  0.0
+    ]);
+
+    var colors = new Float32Array([
+        1.0, 0.0, 0.0, 1.0,
+        0.0, 1.0, 0.0, 1.0,
+        0.0, 0.0, 1.0, 1.0
+    ]);
+
+    drawShape(vertices, colors, gl.TRIANGLES, 3, 0.4, 0.4);
+}
+
+function drawNestedSquares() {
+    var squares = [
+        { size: 0.6, color: [0.0, 0.0, 0.0, 1.0] },
+        { size: 0.5, color: [1.0, 1.0, 1.0, 1.0] },
+        { size: 0.4, color: [0.0, 0.0, 0.0, 1.0] },
+        { size: 0.3, color: [1.0, 1.0, 1.0, 1.0] },
+        { size: 0.2, color: [0.0, 0.0, 0.0, 1.0] },
+        { size: 0.1, color: [1.0, 1.0, 1.0, 1.0] },
+        { size: 0.05, color: [0.0, 0.0, 0.0, 1.0] }
+    ];
+
+    for (var i = 0; i < squares.length; i++) {
+        var square = squares[i];
+        var size = square.size;
+        var color = square.color;
+        
+        var vertices = new Float32Array([
+            -size, -size,
+             size, -size,
+             size,  size,
+            -size,  size
+        ]);
+
+        var vertexColors = new Float32Array([
+            color[0], color[1], color[2], color[3],
+            color[0], color[1], color[2], color[3],
+            color[0], color[1], color[2], color[3],
+            color[0], color[1], color[2], color[3]
+        ]);
+
+        drawShape(vertices, vertexColors, gl.TRIANGLE_FAN, 4, 0.0, -0.4);
+    }
+}
+
+function drawShape(vertices, colors, primitive, vertexCount, translateX, translateY) {
+    var vertexBuffer = gl.createBuffer();
+    if (!vertexBuffer) {
+        console.log('Failed to create the vertex buffer object');
+        return;
+    }
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+    var a_Position = gl.getAttribLocation(gl.program, 'a_Position');
+    if (a_Position < 0) {
+        console.log('Failed to get the storage location of a_Position');
+        return;
+    }
+
+    gl.vertexAttribPointer(a_Position, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(a_Position);
+
+    var colorBuffer = gl.createBuffer();
+    if (!colorBuffer) {
+        console.log('Failed to create the color buffer object');
+        return;
+    }
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, colors, gl.STATIC_DRAW);
+
+    var a_Color = gl.getAttribLocation(gl.program, 'a_Color');
+    if (a_Color < 0) {
+        console.log('Failed to get the storage location of a_Color');
+        return;
+    }
+
+    gl.vertexAttribPointer(a_Color, 4, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(a_Color);
+
+    var modelMatrix = new Matrix4();
+    modelMatrix.setTranslate(translateX, translateY, 0.0);
+    modelMatrix.rotate(currentRotation, 0, 0, 1);
+
+    gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+
+    gl.drawArrays(primitive, 0, vertexCount);
+}
+
+</script>
+
+</head>
+
+<body onload="main();" style="margin: 20px; font-family: Arial, sans-serif;">
+
+<h2>Shapes and Gradients</h2>
+
+<canvas id="webgl" width="600" height="600" style="border: 1px solid #ccc;"></canvas>
+
+<br><br> 
+
+<button type="button" onclick="rotateLeft()" style="padding: 10px 20px; margin-right: 10px; font-size: 16px;">Left</button>
+<button type="button" onclick="rotateRight()" style="padding: 10px 20px; font-size: 16px;">Right</button>
+
+<br><br>
+</body>
+</html>
