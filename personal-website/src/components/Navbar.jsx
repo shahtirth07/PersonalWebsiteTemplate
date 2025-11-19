@@ -48,6 +48,10 @@ const Navbar = ({ theme, toggleTheme }) => {
           <a href="#experience" className="nav-link" onClick={closeMenu}>Experience</a>
           <a href="#education" className="nav-link" onClick={closeMenu}>Education</a>
           <a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a>
+          <a href="#graphics" className="nav-link" onClick={closeMenu}>Graphics</a>
+          <a href="#skills" className="nav-link" onClick={closeMenu}>Skills</a>
+          <a href="#publications" className="nav-link" onClick={closeMenu}>Publications</a>
+          <a href="#awards" className="nav-link" onClick={closeMenu}>Awards</a>
           <a href="#contact" className="nav-link" onClick={closeMenu}>Contact</a>
           <button className="theme-toggle-btn" onClick={toggleTheme} aria-label="Toggle theme">
             {theme === 'dark' ? '🌙' : '☀️'}
@@ -60,6 +64,10 @@ const Navbar = ({ theme, toggleTheme }) => {
           <a href="#experience" className="nav-link" onClick={closeMenu}>Experience</a>
           <a href="#education" className="nav-link" onClick={closeMenu}>Education</a>
           <a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a>
+          <a href="#graphics" className="nav-link" onClick={closeMenu}>Graphics</a>
+          <a href="#skills" className="nav-link" onClick={closeMenu}>Skills</a>
+          <a href="#publications" className="nav-link" onClick={closeMenu}>Publications</a>
+          <a href="#awards" className="nav-link" onClick={closeMenu}>Awards</a>
           <a href="#contact" className="nav-link" onClick={closeMenu}>Contact</a>
           <button className="theme-toggle-btn mobile-theme-btn" onClick={toggleTheme} aria-label="Toggle theme">
             {theme === 'dark' ? '🌙' : '☀️'}

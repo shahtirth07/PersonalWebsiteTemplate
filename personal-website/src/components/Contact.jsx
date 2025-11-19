@@ -53,13 +53,13 @@ const Contact = () => {
           <h3>Let's Connect</h3>
           <p>Feel free to reach out to me for any opportunities or just to say hello!</p>
           <div className="social-links">
-            <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/shahtirth07" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/shahtirth07" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i>
             </a>
-            <a href="mailto:your.email@example.com">
+            <a href="mailto:tshah@csuchico.edu">
               <i className="fas fa-envelope"></i>
             </a>
           </div>

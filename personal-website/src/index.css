@@ -12,12 +12,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --primary-color: #6c5ce7;
-  --secondary-color: #a8a4e6;
+  --primary-color: #00d4ff;
+  --secondary-color: #00f5ff;
+  --accent-color: #ff6b35;
   --background-start: #f8f9fa;
   --background-end: #e9ecef;
-  --text-primary: #2d3436;
-  --text-secondary: #636e72;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a5568;
   --card-bg: rgba(255, 255, 255, 0.9);
   --navbar-bg: rgba(255, 255, 255, 0.95);
   --section-title-color: var(--primary-color);
@@ -25,16 +26,17 @@
 }
 
 .dark-theme {
-  --primary-color: #a8a4e6;
-  --secondary-color: #6c5ce7;
-  --background-start: #000;
-  --background-end: #000;
-  --text-primary: #f4f4f4;
-  --text-secondary: #b8b8b8;
-  --card-bg: rgba(30, 30, 30, 0.98);
-  --navbar-bg: rgba(20, 20, 20, 0.95);
-  --section-title-color: #b39ddb;
-  --footer-bg: #181818;
+  --primary-color: #00d4ff;
+  --secondary-color: #00f5ff;
+  --accent-color: #ff6b35;
+  --background-start: #0a0e27;
+  --background-end: #1a1a2e;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --card-bg: rgba(15, 23, 42, 0.95);
+  --navbar-bg: rgba(0, 0, 0, 0.95);
+  --section-title-color: #00d4ff;
+  --footer-bg: #0a0e27;
 }
 
 body.dark-theme {
@@ -124,7 +126,7 @@ section h2::after {
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  border: 1px solid rgba(108, 92, 231, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -134,7 +136,7 @@ section h2::after {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  border-color: rgba(108, 92, 231, 0.2);
+  border-color: rgba(0, 212, 255, 0.4);
 }
 
 /* Global list styles */
@@ -155,8 +157,8 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 20%, rgba(108, 92, 231, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(168, 164, 230, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 50%);
   pointer-events: none;
   z-index: -1;
   animation: backgroundShift 15s ease-in-out infinite alternate;
@@ -266,7 +268,7 @@ button::after,
   background: linear-gradient(45deg, 
     var(--primary-color),
     var(--secondary-color),
-    #a8a4e6,
+    #00f5ff,
     var(--primary-color)
   );
   background-size: 400%;
@@ -288,7 +290,7 @@ button:hover,
 .nav-link:hover {
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
 }
 
 button:hover::before, 
@@ -308,7 +310,7 @@ button:active,
 .nav-button:active,
 .nav-link:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.3);
 }
 
 /* Special styles for navbar links */

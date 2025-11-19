@@ -55,19 +55,21 @@ body.dark-theme {
 }
 
 .cv-download {
-  background: #6c2eb7;
+  background: #00d4ff;
   color: white;
   padding: 0.8rem 2rem;
   border-radius: 2rem;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
+  display: inline-block;
+  margin: 1rem 0;
 }
 
 .cv-download:hover {
-  background: #8a4cd9;
+  background: #00a8cc;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(108, 46, 183, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
 }
 
 .copyright {

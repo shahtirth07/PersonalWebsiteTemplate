@@ -7,18 +7,16 @@ const educationData = [
   {
     institution: 'California State University, Chico',
     degree: 'Master of Science in Computer Science',
-    duration: 'May 2026',
+    duration: 'Aug 2024 - Exp(May 2026)',
     location: 'Chico, CA',
     logo: csuChicoLogo,
     linkedin: 'https://www.csuchico.edu/index.shtml',
-    details: [
-      'CGPA: 3.7/4'
-    ]
+    details: []
   },
   {
-    institution: 'AISSMS Institute of Information Technology',
+    institution: 'Savitribai Phule Pune University',
     degree: 'Bachelor of Engineering in Electronics and Telecommunication',
-    duration: 'May 2022',
+    duration: 'Aug 2018 - May 2022',
     location: 'Pune, IN',
     logo: aissmsLogo,
     linkedin: 'https://aissmsioit.org',

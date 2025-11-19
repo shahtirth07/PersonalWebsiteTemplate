@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Perspective + Procedural Sand + Animated Ripples</title>
+
+  <!-- Matsuda utilities -->
+  <script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/webgl-utils.js"></script>
+  <script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/webgl-debug.js"></script>
+  <script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/cuon-matrix.js"></script>
+  <script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/cuon-utils.js"></script>
+
+  <style>
+    body{ font-family:system-ui, Arial, sans-serif; }
+    #controls{ margin-top:8px; }
+    button{ padding:6px 10px; font-size:14px; }
+  </style>
+</head>
+<body onload="main();">
+  <canvas id="webgl" width="1000" height="700"></canvas>
+  <div id="controls">
+    <button id="btnF">Forward</button>
+    <button id="btnB">Back</button>
+    <button id="btnL">Left</button>
+    <button id="btnR">Right</button>
+  </div>
+
+<script>
+/* ===================== Shaders ===================== */
+const VSHADER_SRC = `
+attribute vec3 a_Position;
+attribute vec2 a_UV;
+
+uniform mat4 u_Model, u_View, u_Proj;
+
+varying vec2 v_UV;
+varying vec3 v_PosWorld;
+
+void main(){
+  v_UV = a_UV;
+  vec4 world = u_Model * vec4(a_Position,1.0);
+  v_PosWorld = world.xyz;
+  gl_Position = u_Proj * u_View * world;
+}
+`;
+
+// ---- Sand FS (uses provided noise/turb) ----
+const FSHADER_SAND = `
+precision mediump float;
+varying vec3 v_PosWorld;
+
+vec3 permute(vec3 x){ return mod(((x*34.0)+1.0)*x, 289.0); }
+vec3 taylorInvSqrt(vec3 r){ return 1.79284291400159 - 0.85373472095314 * r; }
+float noise(vec2 P){
+  const vec2 C = vec2(0.21132486540518713, 0.36602540378443859);
+  vec2 i = floor(P + dot(P, C.yy));
+  vec2 x0 = P - i + dot(i, C.xx);
+  vec2 i1; i1.x = step(x0.y, x0.x); i1.y = 1.0 - i1.x;
+  vec4 x12 = x0.xyxy + vec4(C.xx, C.xx*2.0-1.0); x12.xy -= i1;
+  i = mod(i, 289.0);
+  vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+  m = m*m; m = m*m;
+  vec3 x = fract(p*(1.0/41.0)) * 2.0 - 1.0;
+  vec3 gy = abs(x)-0.5; vec3 ox = floor(x + 0.5); vec3 gx = x - ox;
+  m *= taylorInvSqrt(gx*gx + gy*gy);
+  vec3 g; g.x = gx.x*x0.x + gy.x*x0.y; g.yz = gx.yz*x12.xz + gy.yz*x12.yw;
+  return 130.0 * dot(m,g);
+}
+float turb(float cx, float cy){
+  return .5*noise(vec2(cx,cy)) + .25*noise(vec2(2.0*cx,2.0*cy)) + .125*noise(vec2(4.0*cx,4.0*cy));
+}
+
+void main(){
+  float cx = v_PosWorld.x;
+  float cz = v_PosWorld.z;
+
+  float dunes  = (1.0 + sin((cx + turb(cx,cz) * 2.0) * 5.0)) * .5;
+  float grains = noise(vec2(cx*200.0, cz*200.0));
+  float m = (dunes + grains) * 0.10;
+
+  vec3 base = vec3(0.90, 0.80, 0.50);
+  gl_FragColor = vec4(base + vec3(m), 1.0);
+}
+`;
+
+const FSHADER_RIPPLE = `
+precision mediump float;
+varying vec2 v_UV;
+uniform float u_Time;
+
+void main(){
+  vec2 p = v_UV*2.0 - 1.0;      
+  float r = length(p);
+  float k = 15.0;               
+  float w = 2.0;                
+  float s = 0.5 + 0.5 * sin(k*r - w*u_Time);
+  
+  float ring = step(0.5, s);
+  
+  float transparencyGradient = 1.0 - smoothstep(0.0, 1.0, s);
+  
+  vec3 color = vec3(0.2, 0.6, 0.9);
+  
+  float alpha = ring * transparencyGradient;
+  
+  gl_FragColor = vec4(color, alpha);
+}
+`;
+
+/* ===================== Helpers ===================== */
+function compile(gl, type, src){
+  const sh = gl.createShader(type);
+  gl.shaderSource(sh, src); gl.compileShader(sh);
+  if(!gl.getShaderParameter(sh, gl.COMPILE_STATUS)){ throw new Error(gl.getShaderInfoLog(sh)); }
+  return sh;
+}
+function linkProgram(gl, vsSrc, fsSrc){
+  const vs = compile(gl, gl.VERTEX_SHADER, vsSrc);
+  const fs = compile(gl, gl.FRAGMENT_SHADER, fsSrc);
+  const p = gl.createProgram();
+  gl.attachShader(p, vs); gl.attachShader(p, fs); gl.linkProgram(p);
+  if(!gl.getProgramParameter(p, gl.LINK_STATUS)){ throw new Error(gl.getProgramInfoLog(p)); }
+  return p;
+}
+
+/* ===================== Main ===================== */
+function main(){
+  const canvas = document.getElementById('webgl');
+  const gl = getWebGLContext(canvas); if(!gl){ alert('WebGL failed'); return; }
+
+  gl.clearColor(0.04, 0.20, 0.35, 1.0);
+  gl.enable(gl.DEPTH_TEST);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+  const sandProg   = linkProgram(gl, VSHADER_SRC, FSHADER_SAND);
+  const rippleProg = linkProgram(gl, VSHADER_SRC, FSHADER_RIPPLE);
+
+  const positions = new Float32Array([
+    -1,-1,0,   1,-1,0,
+    -1, 1,0,   1, 1,0
+  ]);
+  const uvs = new Float32Array([ 0,0, 1,0, 0,1, 1,1 ]);
+
+  const posBuf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
+  gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+
+  const uvBuf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, uvBuf);
+  gl.bufferData(gl.ARRAY_BUFFER, uvs, gl.STATIC_DRAW);
+  gl.bindBuffer(gl.ARRAY_BUFFER, null);
+
+  function bindAttribs(prog){
+    gl.useProgram(prog);
+    const aPos = gl.getAttribLocation(prog, "a_Position");
+    gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
+    gl.vertexAttribPointer(aPos, 3, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(aPos);
+    const aUV = gl.getAttribLocation(prog, "a_UV");
+    gl.bindBuffer(gl.ARRAY_BUFFER, uvBuf);
+    gl.vertexAttribPointer(aUV, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(aUV);
+    gl.bindBuffer(gl.ARRAY_BUFFER, null);
+  }
+
+  function uniforms(p){ return {
+    u_Model: gl.getUniformLocation(p,"u_Model"),
+    u_View:  gl.getUniformLocation(p,"u_View"),
+    u_Proj:  gl.getUniformLocation(p,"u_Proj"),
+    u_Time:  gl.getUniformLocation(p,"u_Time")
+  }; }
+  const U_sand   = uniforms(sandProg);
+  const U_ripple = uniforms(rippleProg);
+
+  const proj = new Matrix4();
+  const view = new Matrix4();
+  const model = new Matrix4();
+
+  proj.setPerspective(45, canvas.width/canvas.height, 0.1, 100.0);
+
+  const eye = { r: 6.0, theta: 0.0, y: 3.2 };
+  const stepR = 0.4, stepTheta = 0.08;
+  function updateView(){
+    const ex = eye.r * Math.sin(eye.theta);
+    const ez = eye.r * Math.cos(eye.theta);
+    view.setLookAt(ex, eye.y, ez, 0, 0, 0, 0, 1, 0);
+  }
+  updateView();
+
+  function forward(){ eye.r = Math.max(2.0, eye.r - stepR); updateView(); }
+  function back(){ eye.r += stepR; updateView(); }
+  function left(){ eye.theta += stepTheta; updateView(); }
+  function right(){ eye.theta -= stepTheta; updateView(); }
+
+  document.getElementById('btnF').onclick = forward;
+  document.getElementById('btnB').onclick = back;
+  document.getElementById('btnL').onclick = left;
+  document.getElementById('btnR').onclick = right;
+  window.addEventListener('keydown', e=>{
+    if(e.key==="ArrowUp") forward();
+    if(e.key==="ArrowDown") back();
+    if(e.key==="ArrowLeft") left();
+    if(e.key==="ArrowRight") right();
+  });
+
+  let t = 0.0;
+  function draw(){
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    t += 0.016;
+
+    gl.useProgram(sandProg);
+    bindAttribs(sandProg);
+    gl.uniformMatrix4fv(U_sand.u_Proj, false, proj.elements);
+    gl.uniformMatrix4fv(U_sand.u_View, false, view.elements);
+    model.setIdentity()
+         .translate(0, -0.85, 0) 
+         .rotate(-90, 1,0,0)     
+         .rotate(12, 1,0,0)      
+         .scale(6, 6, 1);        
+    gl.uniformMatrix4fv(U_sand.u_Model, false, model.elements);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+    gl.useProgram(rippleProg);
+    bindAttribs(rippleProg);
+    gl.uniformMatrix4fv(U_ripple.u_Proj, false, proj.elements);
+    gl.uniformMatrix4fv(U_ripple.u_View, false, view.elements);
+    gl.uniform1f(U_ripple.u_Time, t);
+     model.setIdentity()
+          .translate(0, 2.0, 0)  
+          .scale(3, 3, 1);
+    gl.uniformMatrix4fv(U_ripple.u_Model, false, model.elements);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+</script>
+</body>
+</html>

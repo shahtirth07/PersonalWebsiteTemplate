@@ -106,19 +106,25 @@ const skills = [
   {
     category: 'Languages',
     items: [
-      'C/C++', 'Python', 'Java', 'Kotlin', 'Groovy', 'Scala', 'JavaScript', 'HTML+CSS', 'TypeScript', 'XML', 'MYSQL', 'C#', 'Dart'
+      'C/C++', 'Java', 'Groovy', 'Python', 'Rust', 'PL/SQL', 'JavaScript', 'C', 'MATLAB', 'Swift', 'Scala', 'Kotlin', 'Flutter', 'TypeScript', 'Dart'
     ]
   },
   {
-    category: 'Frameworks & Libraries',
+    category: 'Technologies & Frameworks',
     items: [
-      'Springboot', 'Nodejs', 'Nuxtjs', 'Reactjs', 'Vuejs', 'Lombok', 'C++ STL', 'Tensorflow', 'Numpy', 'Pandas', 'JPA', 'Scikit learn', 'Pytorch', 'Next.js', 'AngularJS', 'Flask', 'Django', 'Flutter', 'React Native'
+      'Git', 'FastAPI', 'Reactjs', 'Rest APIs', 'Nodejs', 'Bootstrap', 'HTML+CSS', 'Tableau', 'Alteryx', 'AWS', 'Docker', 'Kubernetes', 'PySpark', 'Power BI', 'Postman', 'GCP', 'Springboot', 'Microservices', 'Next.js', 'Flask'
     ]
   },
   {
-    category: 'DevOps & Tools',
+    category: 'Databases',
     items: [
-      'Nodejs', 'VSCode', 'Git', 'Github', 'Gitlab', 'IntelliJ Idea', 'Docker', 'Kubernetes', 'Rest APIs', 'Postman', 'AWS', 'GCP', 'Github Actions', 'BigQuery', 'Teradata', 'Oracle', 'MongoDb', 'GoogleCloud'
+      'MYSQL', 'MongoDb', 'Chroma', 'Firebase', 'PostgreSQL', 'Redis', 'GraphQL', 'Neo4j', 'Supabase'
+    ]
+  },
+  {
+    category: 'Machine Learning',
+    items: [
+      'CUDA', 'Numpy', 'Pandas', 'Transformers', 'Scikit learn', 'Matplotlib', 'Seaborn', 'Pytorch', 'Tensorflow', 'NLTK', 'boto3', 'SciPy', 'BeautifulSoup', 'NLP', 'Deep Learning', 'LangFlow', 'Requests', 'Pillow', 'LangChain', 'FAISS'
     ]
   }
 ];

@@ -7,30 +7,30 @@ import chicostateLogo from '../assets/chicostateenterprises_logo.jpeg';
 
 const experienceData = [
   {
-    company: 'Chico State University – SAP UCC Project',
-    position: 'Team Lead / Full-Stack Engineer Intern',
+    company: 'Chico State Enterprises',
+    position: 'AI/ML and Network Engineer',
     duration: 'May 2025 – Present',
     location: 'Chico, CA',
     logo: chicostateLogo,
     linkedin: 'https://www.csuchico.edu/index.shtml',
     responsibilities: [
-      'Leading development of SAP-UCC portal used by 10K+ users across 30+ institutions; defined system architecture and introduced mono-repo with Node.js, React-Redux, and Tailwind.',
-      'Built 40+ REST APIs (300 endpoints) with <250ms latency; implemented RBAC, JWT auth, and cron jobs to automate cleanup of 100K+ tokens/week.',
-      'Integrated CI/CD (GitHub Actions, Jest), EJS-based email workflows, and Winston logging, boosting engagement by 25%, test coverage to 78%, and reducing debugging time by 60%.'
+      'Spearheading modernization of SAP-UCC infrastructure serving 10K+ users across 30+ institutions by integrating intelligent workload routing and network monitoring pipelines, improving system scalability and fault tolerance.',
+      'Designed and deployed AI-driven anomaly detection models for service latency prediction using Python, TensorFlow, and Grafana-integrated dashboards, improving uptime and early-alert accuracy by 35%.',
+      'Implemented automated QA pipelines with synthetic data generation, ML-based regression validation, and continuous monitoring via Jenkins and Docker, reducing manual verification time by 60%.'
     ]
   },
   {
     company: 'Onix Datametica Birds (Formerly Datametica Pvt Ltd)',
-    position: 'Associate Member Of Technical Staff / Associate Engineer / Product Intern',
-    duration: 'October 2021 – July 2024',
+    position: 'Associate Member of Technical Staff',
+    duration: 'Oct 2021 – Jul 2024',
     location: 'Pune, IN',
-    logo: 'https://media.licdn.com/dms/image/v2/D4E0BAQHvNEL6eK0t1A/company-logo_200_200/B4EZcXwrWxHIAI-/0/1748450326390/datametica_birds_logo?e=1755129600&v=beta&t=HUc0iJVbJ_ghDSsU5uGcwsnKAInw31g1kUJLy2EzPnI',
+    logo: datameticaLogo,
     linkedin: 'https://www.linkedin.com/company/datametica-birds/posts/?feedView=all',
     responsibilities: [
-      'Spearheaded development of data migration tools for the Raven product suite, enhancing support for DataStage and building new tools for Informatica and Alteryx.',
-      'Designed and implemented advanced data generator tools using Groovy and Scala, producing over 1 million synthetic records and improving query performance, reducing testing time by 30 hours monthly.',
-      'Proficient in CI/CD methodologies within Agile environments, adeptly supporting both Kanban and Scrum workflows in a TDD approach.',
-      'Built Raven UI with Spring Boot, JPA, PostgreSQL, React, and Docker to streamline migrations and implemented automated email notifications to enhance stakeholder communication.'
+      'Led development of data migration tools for the Raven suite, adding support for DataStage, Informatica, and Alteryx, improving tool compatibility coverage by 60%.',
+      'Built advanced data generator tools in Groovy/Scala, generating 1M+ synthetic records and accelerating test cycles, cutting 30 hours/month in manual QA.',
+      'Supported CI/CD pipelines and Agile delivery across 5+ product teams; improved deployment frequency by 25% and reduced rollback incidents.',
+      'Developed Raven UI with Spring Boot, PostgreSQL, and React, enabling zero-downtime migrations and automating email alerts with monitoring, cutting stakeholder update latency by 80%.'
     ]
   },
   {

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>WebGL Scene with Three Shapes and Lighting</title>
+
+<script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/webgl-utils.js"></script>
+<script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/webgl-debug.js"></script>
+<script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/cuon-matrix.js"></script>
+<script src="https://www.ecst.csuchico.edu/~oal-saadi/Graphics/lib/cuon-utils.js"></script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f0f0f0;
+    }
+    canvas {
+        border: 2px solid #333;
+        margin: 20px 0;
+    }
+    .controls {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin: 10px 0;
+    }
+    .control-group {
+        margin: 15px 0;
+    }
+    label {
+        display: inline-block;
+        width: 120px;
+        font-weight: bold;
+    }
+    input[type="range"] {
+        width: 200px;
+        margin: 0 10px;
+    }
+    .value {
+        display: inline-block;
+        width: 50px;
+        text-align: center;
+        background-color: #e0e0e0;
+        padding: 2px 5px;
+        border-radius: 3px;
+    }
+</style>
+
+<script>
+
+var VSHADER_SOURCE =
+    `attribute vec4 a_Position; 
+    attribute vec4 a_Color; 
+    attribute vec4 a_Normal; 
+    attribute vec2 a_UV; 
+    uniform mat4 u_ModelMatrix; 
+    uniform mat4 u_ViewMatrix; 
+    uniform mat4 u_ProjMatrix;
+    varying vec4 v_Position;
+    varying vec4 v_Color;
+    varying vec3 v_Normal;
+    varying vec2 v_UV;
+    void main() { 
+        gl_Position = u_ProjMatrix * u_ViewMatrix * u_ModelMatrix * a_Position;
+        v_Position = u_ModelMatrix * a_Position;
+        v_Color = a_Color;
+        v_Normal = vec3(u_ModelMatrix * a_Normal);
+        v_UV = a_UV;
+    }`;
+
+var FSHADER_SOURCE =
+    `precision mediump float;
+    varying vec4 v_Position; 
+    varying vec4 v_Color; 
+    varying vec3 v_Normal;
+    varying vec2 v_UV;
+    uniform float u_Time; 
+    uniform vec3 u_Light1Position;
+    uniform vec3 u_Light1Color;
+    uniform vec3 u_Light2Position;
+    uniform vec3 u_Light2Color;
+    uniform vec3 u_AmbientLight;
+    void main() { 
+        vec3 normal = normalize(v_Normal);
+
+        vec3 light1Direction = normalize(u_Light1Position - v_Position.xyz);
+        float nDotL1 = max(dot(light1Direction, normal), 0.0);
+        vec3 diffuse1 = u_Light1Color * v_Color.rgb * nDotL1;
+
+        vec3 light2Direction = normalize(u_Light2Position - v_Position.xyz);
+        float nDotL2 = max(dot(light2Direction, normal), 0.0);
+        vec3 diffuse2 = u_Light2Color * v_Color.rgb * nDotL2;
+
+        vec3 ambient = u_AmbientLight * v_Color.rgb;
+
+        gl_FragColor = vec4(diffuse1 + diffuse2 + ambient, v_Color.a);
+    }`;
+
+var sphereData, coneData, cylinderData;
+var gl;
+var light1Position = [2.0, 2.0, 2.0];
+var light1Color = [1.0, 1.0, 1.0];
+var light2Position = [-2.0, 2.0, -2.0];
+var light2Color = [1.0, 0.5, 0.0];
+var ambientLight = [0.2, 0.2, 0.2];
+
+function main(){
+    console.log("WebGL Scene Starting");
+    var canvas = document.getElementById('webgl');
+    var gl = getWebGLContext(canvas);
+
+    gl.clearColor(0.1, 0.1, 0.1, 1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE);
+    gl.useProgram(gl.program);
+
+    gl.enable(gl.DEPTH_TEST);
+
+    sphereData = createSphere(16);
+    coneData = createCone(16);
+    cylinderData = createCylinder(16);
+
+    var modelMatrix = new Matrix4();
+    var viewMatrix = new Matrix4();
+    var projMatrix = new Matrix4();
+    var u_ModelMatrix = gl.getUniformLocation(gl.program, 'u_ModelMatrix');
+    var u_ViewMatrix = gl.getUniformLocation(gl.program, 'u_ViewMatrix');
+    var u_ProjMatrix = gl.getUniformLocation(gl.program, 'u_ProjMatrix');
+
+    var u_Light1Position = gl.getUniformLocation(gl.program, 'u_Light1Position');
+    var u_Light1Color = gl.getUniformLocation(gl.program, 'u_Light1Color');
+    var u_Light2Position = gl.getUniformLocation(gl.program, 'u_Light2Position');
+    var u_Light2Color = gl.getUniformLocation(gl.program, 'u_Light2Color');
+    var u_AmbientLight = gl.getUniformLocation(gl.program, 'u_AmbientLight');
+
+    var TIME = 0.0;
+    var u_Time = gl.getUniformLocation(gl.program, 'u_Time');
+    setupSliderListeners();
+
+    var tick = function() {
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+        TIME += 0.01;
+        gl.uniform1f(u_Time, TIME);
+
+        viewMatrix.setLookAt(0, 2, 8, 0, 0, 0, 0, 1, 0);
+        gl.uniformMatrix4fv(u_ViewMatrix, false, viewMatrix.elements);
+
+        projMatrix.setPerspective(30, canvas.width / canvas.height, 1, 100);
+        gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
+
+        gl.uniform3fv(u_Light1Position, light1Position);
+        gl.uniform3fv(u_Light1Color, light1Color);
+        gl.uniform3fv(u_Light2Position, light2Position);
+        gl.uniform3fv(u_Light2Color, light2Color);
+        gl.uniform3fv(u_AmbientLight, ambientLight);
+
+        modelMatrix.setIdentity();
+        modelMatrix.translate(-2, 0, 0);
+        modelMatrix.rotate(TIME * 0.5, 0, 1, 0);
+        gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+        drawShape(gl, sphereData);
+
+        modelMatrix.setIdentity();
+        modelMatrix.translate(0, 0, 0);
+        modelMatrix.rotate(TIME * 0.3, 0, 1, 0);
+        gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+        drawShape(gl, coneData);
+
+        modelMatrix.setIdentity();
+        modelMatrix.translate(2, 0, 0);
+        modelMatrix.rotate(TIME * 0.7, 0, 1, 0);
+        gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+        drawShape(gl, cylinderData);
+
+        requestAnimationFrame(tick, canvas);
+    };
+    tick();
+}
+
+function createSphere(stacks) {
+    var SPHERE_DIV = stacks;
+    var i, ai, si, ci;
+    var j, aj, sj, cj;
+    var p1, p2;
+
+    var positions = [];
+    var indices = [];
+    var colors = [];
+    var uvs = [];
+
+    for (j = 0; j <= SPHERE_DIV; j++) {
+        aj = j * Math.PI / SPHERE_DIV;
+        sj = Math.sin(aj);
+        cj = Math.cos(aj);
+        for (i = 0; i <= SPHERE_DIV; i++) {
+            ai = i * 2 * Math.PI / SPHERE_DIV;
+            si = Math.sin(ai);
+            ci = Math.cos(ai);
+
+            positions.push(si * sj);  // X
+            positions.push(cj);       // Y
+            positions.push(ci * sj);  // Z
+
+            colors.push(0.8, 0.2, 0.2); // Red color
+
+            uvs.push(i / SPHERE_DIV);
+            uvs.push(j / SPHERE_DIV);
+        }
+    }
+
+    for (j = 0; j < SPHERE_DIV; j++) {
+        for (i = 0; i < SPHERE_DIV; i++) {
+            p1 = j * (SPHERE_DIV + 1) + i;
+            p2 = p1 + (SPHERE_DIV + 1);
+
+            indices.push(p1);
+            indices.push(p2);
+            indices.push(p1 + 1);
+
+            indices.push(p1 + 1);
+            indices.push(p2);
+            indices.push(p2 + 1);
+        }
+    }
+
+    return {
+        positions: new Float32Array(positions),
+        indices: new Uint16Array(indices),
+        colors: new Float32Array(colors),
+        uvs: new Float32Array(uvs),
+        indexCount: indices.length
+    };
+}
+
+function createCone(stacks) {
+    var CONE_DIV = stacks;
+    var i, ai, si, ci;
+    var j, aj, sj, cj;
+    var p1, p2;
+
+    var positions = [];
+    var indices = [];
+    var colors = [];
+    var uvs = [];
+
+    // Create side surface
+    for (j = 0; j <= CONE_DIV; j++) {
+        aj = j * Math.PI / CONE_DIV;
+        sj = Math.sin(aj);
+        cj = Math.cos(aj);
+        for (i = 0; i <= CONE_DIV; i++) {
+            ai = i * 2 * Math.PI / CONE_DIV;
+            si = Math.sin(ai);
+            ci = Math.cos(ai);
+
+            var stackRadius = 1.0 - (j / CONE_DIV);
+            var height = (j / CONE_DIV) * 2.0 - 1.0;
+            
+            positions.push(si * stackRadius);
+            positions.push(height);
+            positions.push(ci * stackRadius);
+
+            colors.push(0.2, 0.8, 0.2);
+
+            uvs.push(i / CONE_DIV);
+            uvs.push(j / CONE_DIV);
+        }
+    }
+
+    // Create side surface indices
+    for (j = 0; j < CONE_DIV; j++) {
+        for (i = 0; i < CONE_DIV; i++) {
+            p1 = j * (CONE_DIV + 1) + i;
+            p2 = p1 + (CONE_DIV + 1);
+
+            indices.push(p1);
+            indices.push(p2);
+            indices.push(p1 + 1);
+
+            indices.push(p1 + 1);
+            indices.push(p2);
+            indices.push(p2 + 1);
+        }
+    }
+
+    // Add base cap (bottom of cone)
+    var baseCenterIndex = positions.length / 3;
+    positions.push(0, -1, 0); // Center of base
+    colors.push(0.2, 0.8, 0.2);
+    uvs.push(0.5, 0.5);
+
+    for (i = 0; i <= CONE_DIV; i++) {
+        ai = i * 2 * Math.PI / CONE_DIV;
+        si = Math.sin(ai);
+        ci = Math.cos(ai);
+        
+        positions.push(si, -1, ci);
+        colors.push(0.2, 0.8, 0.2);
+        uvs.push((si + 1) / 2, (ci + 1) / 2);
+    }
+
+    // Create base cap triangles
+    for (i = 0; i < CONE_DIV; i++) {
+        indices.push(baseCenterIndex);
+        indices.push(baseCenterIndex + 1 + i);
+        indices.push(baseCenterIndex + 1 + ((i + 1) % (CONE_DIV + 1)));
+    }
+
+    return {
+        positions: new Float32Array(positions),
+        indices: new Uint16Array(indices),
+        colors: new Float32Array(colors),
+        uvs: new Float32Array(uvs),
+        indexCount: indices.length
+    };
+}
+
+function createCylinder(stacks) {
+    var CYLINDER_DIV = stacks;
+    var i, ai, si, ci;
+    var j, aj, sj, cj;
+    var p1, p2;
+
+    var positions = [];
+    var indices = [];
+    var colors = [];
+    var uvs = [];
+
+    // Create side surface
+    for (j = 0; j <= CYLINDER_DIV; j++) {
+        aj = j * Math.PI / CYLINDER_DIV;
+        sj = Math.sin(aj);
+        cj = Math.cos(aj);
+        for (i = 0; i <= CYLINDER_DIV; i++) {
+            ai = i * 2 * Math.PI / CYLINDER_DIV;
+            si = Math.sin(ai);
+            ci = Math.cos(ai);
+
+            var stackRadius = 1.0;
+            var height = (j / CYLINDER_DIV) * 2.0 - 1.0;
+            
+            positions.push(si * stackRadius);
+            positions.push(height);
+            positions.push(ci * stackRadius);
+
+            colors.push(0.2, 0.2, 0.8);
+
+            uvs.push(i / CYLINDER_DIV);
+            uvs.push(j / CYLINDER_DIV);
+        }
+    }
+
+    // Create side surface indices
+    for (j = 0; j < CYLINDER_DIV; j++) {
+        for (i = 0; i < CYLINDER_DIV; i++) {
+            p1 = j * (CYLINDER_DIV + 1) + i;
+            p2 = p1 + (CYLINDER_DIV + 1);
+
+            indices.push(p1);
+            indices.push(p2);
+            indices.push(p1 + 1);
+
+            indices.push(p1 + 1);
+            indices.push(p2);
+            indices.push(p2 + 1);
+        }
+    }
+
+    // Add bottom cap
+    var bottomCenterIndex = positions.length / 3;
+    positions.push(0, -1, 0); // Center of bottom
+    colors.push(0.2, 0.2, 0.8);
+    uvs.push(0.5, 0.5);
+
+    for (i = 0; i <= CYLINDER_DIV; i++) {
+        ai = i * 2 * Math.PI / CYLINDER_DIV;
+        si = Math.sin(ai);
+        ci = Math.cos(ai);
+        
+        positions.push(si, -1, ci);
+        colors.push(0.2, 0.2, 0.8);
+        uvs.push((si + 1) / 2, (ci + 1) / 2);
+    }
+
+    // Create bottom cap triangles
+    for (i = 0; i < CYLINDER_DIV; i++) {
+        indices.push(bottomCenterIndex);
+        indices.push(bottomCenterIndex + 1 + i);
+        indices.push(bottomCenterIndex + 1 + ((i + 1) % (CYLINDER_DIV + 1)));
+    }
+
+    // Add top cap
+    var topCenterIndex = positions.length / 3;
+    positions.push(0, 1, 0); // Center of top
+    colors.push(0.2, 0.2, 0.8);
+    uvs.push(0.5, 0.5);
+
+    for (i = 0; i <= CYLINDER_DIV; i++) {
+        ai = i * 2 * Math.PI / CYLINDER_DIV;
+        si = Math.sin(ai);
+        ci = Math.cos(ai);
+        
+        positions.push(si, 1, ci);
+        colors.push(0.2, 0.2, 0.8);
+        uvs.push((si + 1) / 2, (ci + 1) / 2);
+    }
+
+    // Create top cap triangles (reverse winding for correct normal)
+    for (i = 0; i < CYLINDER_DIV; i++) {
+        indices.push(topCenterIndex);
+        indices.push(topCenterIndex + 1 + ((i + 1) % (CYLINDER_DIV + 1)));
+        indices.push(topCenterIndex + 1 + i);
+    }
+
+    return {
+        positions: new Float32Array(positions),
+        indices: new Uint16Array(indices),
+        colors: new Float32Array(colors),
+        uvs: new Float32Array(uvs),
+        indexCount: indices.length
+    };
+}
+
+function drawShape(gl, shapeData) {
+    var positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, shapeData.positions, gl.STATIC_DRAW);
+    var a_Position = gl.getAttribLocation(gl.program, 'a_Position');
+    gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(a_Position);
+
+    var normalBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, shapeData.positions, gl.STATIC_DRAW);
+    var a_Normal = gl.getAttribLocation(gl.program, 'a_Normal');
+    gl.vertexAttribPointer(a_Normal, 3, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(a_Normal);
+
+    var colorBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, shapeData.colors, gl.STATIC_DRAW);
+    var a_Color = gl.getAttribLocation(gl.program, 'a_Color');
+    gl.vertexAttribPointer(a_Color, 3, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(a_Color);
+
+    var uvBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, uvBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, shapeData.uvs, gl.STATIC_DRAW);
+    var a_UV = gl.getAttribLocation(gl.program, 'a_UV');
+    gl.vertexAttribPointer(a_UV, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(a_UV);
+
+    var indexBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, shapeData.indices, gl.STATIC_DRAW);
+
+    gl.drawElements(gl.TRIANGLES, shapeData.indexCount, gl.UNSIGNED_SHORT, 0);
+}
+
+function setupSliderListeners() {
+    document.getElementById('lightX').addEventListener('input', function(e) {
+        light1Position[0] = parseFloat(e.target.value);
+        document.getElementById('lightXValue').textContent = e.target.value;
+    });
+
+    document.getElementById('lightY').addEventListener('input', function(e) {
+        light1Position[1] = parseFloat(e.target.value);
+        document.getElementById('lightYValue').textContent = e.target.value;
+    });
+
+    document.getElementById('lightZ').addEventListener('input', function(e) {
+        light1Position[2] = parseFloat(e.target.value);
+        document.getElementById('lightZValue').textContent = e.target.value;
+    });
+
+    document.getElementById('lightR').addEventListener('input', function(e) {
+        light1Color[0] = parseFloat(e.target.value);
+        document.getElementById('lightRValue').textContent = e.target.value;
+    });
+
+    document.getElementById('lightG').addEventListener('input', function(e) {
+        light1Color[1] = parseFloat(e.target.value);
+        document.getElementById('lightGValue').textContent = e.target.value;
+    });
+
+    document.getElementById('lightB').addEventListener('input', function(e) {
+        light1Color[2] = parseFloat(e.target.value);
+        document.getElementById('lightBValue').textContent = e.target.value;
+    });
+}
+
+</script>
+
+</head>
+
+<body onload="main();">
+
+<h1>WebGL Scene: Sphere, Cone, and Cylinder with Lighting</h1>
+
+<canvas id="webgl" width="800" height="600"></canvas>
+
+<div class="controls">
+    <h3>Light 1 Position Controls</h3>
+    <div class="control-group">
+        <label>X Position:</label>
+        <input type="range" id="lightX" min="-5" max="5" step="0.1" value="2">
+        <span class="value" id="lightXValue">2.0</span>
+    </div>
+    <div class="control-group">
+        <label>Y Position:</label>
+        <input type="range" id="lightY" min="-5" max="5" step="0.1" value="2">
+        <span class="value" id="lightYValue">2.0</span>
+    </div>
+    <div class="control-group">
+        <label>Z Position:</label>
+        <input type="range" id="lightZ" min="-5" max="5" step="0.1" value="2">
+        <span class="value" id="lightZValue">2.0</span>
+    </div>
+</div>
+
+<div class="controls">
+    <h3>Light 1 Color Controls (Extra Credit)</h3>
+    <div class="control-group">
+        <label>Red:</label>
+        <input type="range" id="lightR" min="0" max="1" step="0.1" value="1">
+        <span class="value" id="lightRValue">1.0</span>
+    </div>
+    <div class="control-group">
+        <label>Green:</label>
+        <input type="range" id="lightG" min="0" max="1" step="0.1" value="1">
+        <span class="value" id="lightGValue">1.0</span>
+    </div>
+    <div class="control-group">
+        <label>Blue:</label>
+        <input type="range" id="lightB" min="0" max="1" step="0.1" value="1">
+        <span class="value" id="lightBValue">1.0</span>
+    </div>
+</div>
+
+<br> 
+<button type="button" onclick="action()">Button</button>
+
+</body>
+</html>

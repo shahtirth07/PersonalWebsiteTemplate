@@ -23,7 +23,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #6c5ce7, #a8a4e6);
+  background: linear-gradient(90deg, #00d4ff, #00f5ff);
   border-radius: 2px;
 }
 
@@ -41,7 +41,7 @@
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  border: 1px solid rgba(108, 92, 231, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
   color: var(--text-primary);
   width: 100%;
   position: relative;
