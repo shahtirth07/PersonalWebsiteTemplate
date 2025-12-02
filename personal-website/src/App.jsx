@@ -11,6 +11,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import TechnicalSkills from './components/TechnicalSkills'
 import Graphics from './components/Graphics'
+import FinResearch from './components/FinResearch'
 import Network3D from './components/Network3D'
 import MagneticCursor from './components/MagneticCursor'
 import './App.css'
@@ -61,6 +62,7 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <About />
       <Projects />
+      <FinResearch />
       <Graphics />
       <TechnicalSkills />
       <Experience />

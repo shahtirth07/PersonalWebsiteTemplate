@@ -240,7 +240,13 @@ button,
   display: inline-block;
 }
 
-button::before, 
+/* Exclude dashboard section from button effects */
+.fin-research-section button::before,
+.fin-research-section button::after {
+  display: none !important;
+  content: none !important;
+}
+
 .nav-button::before,
 .nav-link::before {
   content: '';
@@ -256,7 +262,6 @@ button::before,
   z-index: -1;
 }
 
-button::after, 
 .nav-button::after,
 .nav-link::after {
   content: '';
@@ -285,7 +290,6 @@ button::after,
   100% { background-position: 0 0; }
 }
 
-button:hover, 
 .nav-button:hover,
 .nav-link:hover {
   color: white;
@@ -293,20 +297,17 @@ button:hover,
   box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
 }
 
-button:hover::before, 
 .nav-button:hover::before,
 .nav-link:hover::before {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-button:hover::after, 
 .nav-button:hover::after,
 .nav-link:hover::after {
   opacity: 1;
 }
 
-button:active, 
 .nav-button:active,
 .nav-link:active {
   transform: translateY(0);

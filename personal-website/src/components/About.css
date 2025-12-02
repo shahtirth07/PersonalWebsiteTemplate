@@ -78,6 +78,23 @@
   color: var(--text-primary);
   margin-bottom: 1.5rem;
   font-weight: 500;
+  font-family: 'Poppins', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.about-description {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #e0e0e0;
+  max-width: 800px;
+  font-family: 'Poppins', Arial, sans-serif;
+  letter-spacing: 0.4px;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+body.dark-theme .about-description {
+  color: #f0f0f0;
 }
 
 .about-text {

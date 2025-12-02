@@ -48,6 +48,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           <a href="#experience" className="nav-link" onClick={closeMenu}>Experience</a>
           <a href="#education" className="nav-link" onClick={closeMenu}>Education</a>
           <a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a>
+          <a href="#fin-research" className="nav-link" onClick={closeMenu}>Dashboards</a>
           <a href="#graphics" className="nav-link" onClick={closeMenu}>Graphics</a>
           <a href="#skills" className="nav-link" onClick={closeMenu}>Skills</a>
           <a href="#publications" className="nav-link" onClick={closeMenu}>Publications</a>
@@ -64,6 +65,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           <a href="#experience" className="nav-link" onClick={closeMenu}>Experience</a>
           <a href="#education" className="nav-link" onClick={closeMenu}>Education</a>
           <a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a>
+          <a href="#fin-research" className="nav-link" onClick={closeMenu}>Dashboards</a>
           <a href="#graphics" className="nav-link" onClick={closeMenu}>Graphics</a>
           <a href="#skills" className="nav-link" onClick={closeMenu}>Skills</a>
           <a href="#publications" className="nav-link" onClick={closeMenu}>Publications</a>

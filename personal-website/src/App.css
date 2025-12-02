@@ -130,12 +130,16 @@ section {
   transition: opacity 0.8s ease, transform 0.8s ease;
   position: relative;
   z-index: 1;
+}
+
+/* Remove background from sections to prevent overlay bars */
+section:not(.fin-research-section) {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
-body.dark-theme section {
+body.dark-theme section:not(.fin-research-section) {
   background: rgba(0, 0, 0, 0.3);
 }
 
@@ -155,14 +159,21 @@ section.visible {
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* Enhanced Button Effects */
-a, button {
+/* Enhanced Button Effects - Exclude dashboard section */
+.fin-research-section a::before,
+.fin-research-section button::before {
+  display: none !important;
+}
+
+a:not(.fin-research-section a), 
+button:not(.fin-research-section button) {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
-a::before, button::before {
+a:not(.fin-research-section a)::before, 
+button:not(.fin-research-section button)::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -173,9 +184,12 @@ a::before, button::before {
   background: rgba(0, 212, 255, 0.3);
   transform: translate(-50%, -50%);
   transition: width 0.6s, height 0.6s;
+  z-index: 0;
+  pointer-events: none;
 }
 
-a:hover::before, button:hover::before {
+a:not(.fin-research-section a):hover::before, 
+button:not(.fin-research-section button):hover::before {
   width: 300px;
   height: 300px;
 }
