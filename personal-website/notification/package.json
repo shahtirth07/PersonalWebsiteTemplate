@@ -1,0 +1,22 @@
+{
+  "name": "career-notification-service",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Polling pipeline that fetches new job postings from target companies and sends notifications via Telegram, Email, Discord, or SMS.",
+  "scripts": {
+    "start": "node src/run.js",
+    "test-telegram": "node test-telegram.js",
+    "query-db": "node src/utils/queryDB.js",
+    "lint": "eslint --ext .js src"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.6.0",
+    "dotenv": "^16.4.7",
+    "node-fetch": "^3.3.2",
+    "twilio": "^5.3.3"
+  },
+  "optionalDependencies": {
+    "nodemailer": "^6.9.7"
+  }
+}
+

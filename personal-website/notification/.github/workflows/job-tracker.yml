@@ -1,0 +1,42 @@
+name: Job Tracker - Automated Notifications
+
+on:
+  schedule:
+    # Run every 6 hours (at minute 0 of every 6th hour)
+    - cron: '0 */6 * * *'
+  # Allow manual triggering from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  track-jobs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: notification/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./notification
+        run: npm ci
+
+      - name: Run job tracker
+        working-directory: ./notification
+        env:
+          NOTIFICATION_METHOD: telegram
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: npm start
+
+      - name: Report completion
+        if: always()
+        run: |
+          echo "Job tracker run completed at $(date)"
+
+
