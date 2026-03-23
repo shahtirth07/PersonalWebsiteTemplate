@@ -7,16 +7,19 @@
     "start": "node src/run.js",
     "test-telegram": "node test-telegram.js",
     "query-db": "node src/utils/queryDB.js",
+    "translate-pdf": "node src/utils/translatePdf.js",
     "lint": "eslint --ext .js src"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.47.0",
     "better-sqlite3": "^11.6.0",
     "dotenv": "^16.4.7",
     "node-fetch": "^3.3.2",
+    "openai": "^6.32.0",
+    "pdf-parse": "^2.4.5",
     "twilio": "^5.3.3"
   },
   "optionalDependencies": {
     "nodemailer": "^6.9.7"
   }
 }
-

@@ -58,6 +58,26 @@ body {
   color: var(--primary-color);
 }
 
+.translate-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--primary-color);
+  background: var(--primary-color);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.translate-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
 .theme-toggle-btn {
   background: none;
   border: none;
@@ -139,6 +159,11 @@ body {
 .mobile-theme-btn {
   font-size: 1.5rem;
   margin-top: 1rem;
+}
+
+.mobile-translate-cta {
+  font-size: 1.1rem;
+  padding: 0.8rem 1.3rem;
 }
 
 /* Responsive design */

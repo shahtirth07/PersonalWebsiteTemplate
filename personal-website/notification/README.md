@@ -45,6 +45,20 @@ cp env.example .env        # configure your preferred notification method
 npm start                   # runs one crawl + notification pass
 ```
 
+## PDF Translation Utility
+
+You can also translate a German PDF into English text using OpenAI.
+
+1. Set `OPENAI_API_KEY` in `.env`.
+2. Run:
+
+```bash
+npm run translate-pdf -- ./path/to/input.pdf ./path/to/output.txt
+```
+
+- If the output path is omitted, the tool writes `<input-filename>.en.txt`.
+- Optional model override: set `OPENAI_TRANSLATION_MODEL` (default is `gpt-4o-mini`).
+
 ### Notification Methods (Choose One)
 
 #### 🟢 **Telegram Bot (Recommended - FREE)**
@@ -131,5 +145,4 @@ Companies are prioritized (1-5) with priority 1 companies checked more frequentl
 - Wire collectors to real endpoints (Workday pagination, Greenhouse board API, Amazon Jobs API).
 - Add retries/backoff, request throttling, and logging to Supabase/Logflare.
 - Hook into your website’s “Career Tracker” section via a REST/GraphQL endpoint.
-*** End Patch```} to=functions.apply_patch ***!
 

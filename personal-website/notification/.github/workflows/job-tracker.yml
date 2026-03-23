@@ -30,6 +30,7 @@ jobs:
         working-directory: ./notification
         env:
           NOTIFICATION_METHOD: telegram
+          STORAGE_TYPE: telegram
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: npm start
