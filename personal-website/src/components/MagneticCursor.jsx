@@ -1,6 +1,21 @@
 import { useEffect } from 'react';
 import './MagneticCursor.css';
 
+const INTERACTIVE_SELECTOR = [
+  'a',
+  'button',
+  '.project-card',
+  '.experience-card',
+  '.award-card',
+  '.leadership-card',
+  '.publication-card',
+  '.card',
+  '.graphics-card',
+  '.about-link',
+  '.nav-link',
+  '.skill-tag',
+].join(', ');
+
 const MagneticCursor = () => {
   useEffect(() => {
     const cursor = document.createElement('div');
@@ -16,6 +31,7 @@ const MagneticCursor = () => {
     let cursorY = 0;
     let dotX = 0;
     let dotY = 0;
+    let rafId = 0;
 
     const updateCursor = () => {
       cursorX += (mouseX - cursorX) * 0.1;
@@ -23,10 +39,12 @@ const MagneticCursor = () => {
       dotX += (mouseX - dotX) * 0.3;
       dotY += (mouseY - dotY) * 0.3;
 
-      cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-      cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
+      cursor.style.left = `${cursorX}px`;
+      cursor.style.top = `${cursorY}px`;
+      cursorDot.style.left = `${dotX}px`;
+      cursorDot.style.top = `${dotY}px`;
 
-      requestAnimationFrame(updateCursor);
+      rafId = requestAnimationFrame(updateCursor);
     };
 
     const handleMouseMove = (e) => {
@@ -34,43 +52,35 @@ const MagneticCursor = () => {
       mouseY = e.clientY;
     };
 
-    const handleMouseEnter = (e) => {
-      cursor.classList.add('hover');
+    const setHover = (active) => {
+      cursor.classList.toggle('hover', active);
+      cursorDot.classList.toggle('hover', active);
     };
 
-    const handleMouseLeave = (e) => {
-      cursor.classList.remove('hover');
+    const handlePointerOver = (e) => {
+      const target = e.target.closest(INTERACTIVE_SELECTOR);
+      if (target) setHover(true);
+    };
+
+    const handlePointerOut = (e) => {
+      const from = e.target.closest(INTERACTIVE_SELECTOR);
+      const to = e.relatedTarget?.closest(INTERACTIVE_SELECTOR);
+      if (from && from !== to) setHover(false);
     };
 
     document.addEventListener('mousemove', handleMouseMove);
-    
-    let interactiveElements = [];
-    
-    // Wait for DOM to be ready
-    const setupInteractiveElements = () => {
-      interactiveElements = Array.from(document.querySelectorAll('a, button, .project-card, .experience-card, .award-card, .leadership-card, .publication-card, .about-link, .nav-link'));
-      interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', handleMouseEnter);
-        el.addEventListener('mouseleave', handleMouseLeave);
-      });
-    };
-    
-    setTimeout(setupInteractiveElements, 100);
+    document.addEventListener('pointerover', handlePointerOver);
+    document.addEventListener('pointerout', handlePointerOut);
 
-    updateCursor();
+    rafId = requestAnimationFrame(updateCursor);
 
     return () => {
+      cancelAnimationFrame(rafId);
       document.removeEventListener('mousemove', handleMouseMove);
-      interactiveElements.forEach(el => {
-        el.removeEventListener('mouseenter', handleMouseEnter);
-        el.removeEventListener('mouseleave', handleMouseLeave);
-      });
-      if (document.body.contains(cursor)) {
-        document.body.removeChild(cursor);
-      }
-      if (document.body.contains(cursorDot)) {
-        document.body.removeChild(cursorDot);
-      }
+      document.removeEventListener('pointerover', handlePointerOver);
+      document.removeEventListener('pointerout', handlePointerOut);
+      cursor.remove();
+      cursorDot.remove();
     };
   }, []);
 
@@ -78,4 +88,3 @@ const MagneticCursor = () => {
 };
 
 export default MagneticCursor;
-

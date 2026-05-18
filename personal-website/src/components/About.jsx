@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './About.css';
+import Hero from './Hero';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import aboutPic from '../assets/about-pic.jpg';
 
 const About = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
+
   return (
     <section id="about" className="about-section">
-      <div className="about-container">
+      <div ref={revealRef} className="about-container reveal">
         <div className="about-image-container">
           <img 
             src={aboutPic}
@@ -14,8 +19,7 @@ const About = () => {
           />
         </div>
         <div className="about-content">
-          <h1 className="about-title">Hi, I'm <span className="highlight">Tirth Shah</span></h1>
-          <h2 className="about-subtitle">Software Development Engineer</h2>
+          <Hero />
           <p className="about-description">
             I'm a Software Development Engineer with expertise in building intelligent systems and scalable infrastructure. 
             Currently pursuing my Master's in Computer Science at California State University, Chico, I combine academic knowledge 

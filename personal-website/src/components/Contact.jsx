@@ -1,8 +1,11 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Contact = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
   const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
@@ -47,6 +50,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact-section">
+      <div ref={revealRef} className="reveal">
       <h2 className="contact-title">Contact Me</h2>
       <div className="contact-container">
         <div className="contact-info">
@@ -112,6 +116,7 @@ const Contact = () => {
             </div>
           )}
         </form>
+      </div>
       </div>
     </section>
   );

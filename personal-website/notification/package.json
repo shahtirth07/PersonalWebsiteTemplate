@@ -10,6 +10,7 @@
     "lint": "eslint --ext .js src"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.47.0",
     "better-sqlite3": "^11.6.0",
     "dotenv": "^16.4.7",
     "node-fetch": "^3.3.2",
@@ -19,4 +20,3 @@
     "nodemailer": "^6.9.7"
   }
 }
-

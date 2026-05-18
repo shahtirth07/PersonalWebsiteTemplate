@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Projects.css';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import project1 from '../assets/project-1.png';
 import project3 from '../assets/project3.png';
 
@@ -70,8 +71,13 @@ const projects = [
   },
 ];
 
-const Projects = () => (
+const Projects = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
+
+  return (
   <section id="projects" className="projects-section">
+    <div ref={revealRef} className="reveal">
     <h2 className="projects-title">Projects</h2>
     <div className="projects-scroll">
       {projects.map((project, idx) => (
@@ -92,7 +98,9 @@ const Projects = () => (
         </div>
       ))}
     </div>
+    </div>
   </section>
-);
+  );
+};
 
 export default Projects; 

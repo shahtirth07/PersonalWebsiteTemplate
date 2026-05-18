@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Awards.css';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import ieeeLogo from '../assets/IEEE_logo.svg.png';
 import datameticaLogo from '../assets/datametica_logo.jpeg';
 
@@ -21,8 +22,13 @@ const awards = [
   }
 ];
 
-const Awards = () => (
+const Awards = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
+
+  return (
   <section id="awards" className="awards-section">
+    <div ref={revealRef} className="reveal">
     <h2 className="awards-title">Awards</h2>
     <div className="awards-list">
       {awards.map((award, idx) => (
@@ -46,8 +52,10 @@ const Awards = () => (
         </div>
       ))}
     </div>
+    </div>
   </section>
-);
+  );
+};
 
 export default Awards;
 

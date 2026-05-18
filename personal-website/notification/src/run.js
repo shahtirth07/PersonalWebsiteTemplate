@@ -9,7 +9,7 @@ import { fetchCustomJobs } from './lib/fetchers/custom.js';
 import { sendJobAlerts } from './lib/notifier/index.js';
 import { logger } from './utils/logger.js';
 
-// Choose storage: 'db' (SQLite), 'telegram' (chat history), or 'file' (JSON file)
+// Choose storage: 'db' (SQLite - local only), 'telegram' (chat history - GitHub Actions), 'supabase' (cloud DB), or 'file' (JSON file)
 const STORAGE_TYPE = process.env.STORAGE_TYPE || 'db'; // Default to SQLite database
 
 // Will be initialized in main()
@@ -28,6 +28,9 @@ async function main() {
     } else if (STORAGE_TYPE === 'telegram') {
       const telegramModule = await import('./lib/storage/telegramStore.js');
       jobStore = telegramModule.telegramStore;
+    } else if (STORAGE_TYPE === 'supabase') {
+      const supabaseModule = await import('./lib/storage/supabaseStore.js');
+      jobStore = supabaseModule.supabaseStore;
     } else {
       const fileModule = await import('./lib/storage/fileStore.js');
       jobStore = fileModule.fileStore;

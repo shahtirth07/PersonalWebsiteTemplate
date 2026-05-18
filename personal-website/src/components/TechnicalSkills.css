@@ -10,7 +10,9 @@
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--section-title-color);
-  margin-bottom: 2rem;
+  margin: 0 0 2rem;
+  width: 100%;
+  text-align: center;
 }
 
 .skills-list {
@@ -18,10 +20,13 @@
   max-width: 900px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2.5rem;
 }
 
 .skills-group {
+  width: 100%;
+  max-width: 900px;
   margin-bottom: 0.5rem;
 }
 

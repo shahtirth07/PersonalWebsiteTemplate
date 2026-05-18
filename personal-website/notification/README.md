@@ -131,5 +131,4 @@ Companies are prioritized (1-5) with priority 1 companies checked more frequentl
 - Wire collectors to real endpoints (Workday pagination, Greenhouse board API, Amazon Jobs API).
 - Add retries/backoff, request throttling, and logging to Supabase/Logflare.
 - Hook into your website’s “Career Tracker” section via a REST/GraphQL endpoint.
-*** End Patch```} to=functions.apply_patch ***!
 

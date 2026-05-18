@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './FinResearch.css';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const FinResearch = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
   const [selectedDashboard, setSelectedDashboard] = useState('trading');
   const [timeRange, setTimeRange] = useState('7d');
   const [chartType, setChartType] = useState('line');
@@ -511,6 +514,7 @@ const FinResearch = () => {
 
   return (
     <section id="fin-research" className="fin-research-section">
+      <div ref={revealRef} className="reveal">
       <h2 className="fin-research-title">Interactive Data Visualization Dashboards</h2>
       <p className="section-subtitle">
         Explore interactive dashboards with real-time charts, filters, and dynamic data visualization
@@ -641,6 +645,7 @@ const FinResearch = () => {
             </div>
           </div>
         )}
+      </div>
       </div>
     </section>
   );

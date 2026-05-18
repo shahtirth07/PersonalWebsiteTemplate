@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Graphics.css';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const graphicsProjects = [
   {
@@ -47,6 +48,8 @@ const graphicsProjects = [
 ];
 
 const Graphics = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
   const [activeFilter, setActiveFilter] = useState('all');
 
   const getProjectUrl = (filename) => {
@@ -67,6 +70,7 @@ const Graphics = () => {
 
   return (
     <section id="graphics" className="graphics-section">
+      <div ref={revealRef} className="reveal">
       <h2 className="graphics-title">Computer Graphics Projects</h2>
       <p className="graphics-intro">
         A collection of WebGL projects from my Computer Graphics course, showcasing 3D rendering, 
@@ -111,6 +115,7 @@ const Graphics = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );
