@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Experience.css';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import datameticaLogo from '../assets/datametica_logo.jpeg';
 import incubeLogo from '../assets/incubedigital_logo.jpeg';
 import technikeinLogo from '../assets/technikien.jpeg';
@@ -57,8 +58,13 @@ const experienceData = [
   }
 ];
 
-const Experience = () => (
+const Experience = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
+
+  return (
   <section id="experience" className="experience-section">
+    <div ref={revealRef} className="reveal">
     <h2 className="experience-title">Experience</h2>
     <div className="experience-list">
       {experienceData.map((exp, idx) => (
@@ -92,7 +98,9 @@ const Experience = () => (
         </div>
       ))}
     </div>
+    </div>
   </section>
-);
+  );
+};
 
 export default Experience; 

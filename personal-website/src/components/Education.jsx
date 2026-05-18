@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import './Education.css';
 import csuChicoLogo from '../assets/california_state_university_chico_logo.jpeg';
 import aissmsLogo from '../assets/aissmsioit_logo.jpeg';
@@ -24,8 +25,13 @@ const educationData = [
   }
 ];
 
-const Education = () => (
+const Education = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
+
+  return (
   <section id="education" className="education-section">
+    <div ref={revealRef} className="reveal">
     <h2>Education</h2>
     <div className="list-container">
       {educationData.map((edu, idx) => (
@@ -61,7 +67,9 @@ const Education = () => (
         </div>
       ))}
     </div>
+    </div>
   </section>
-);
+  );
+};
 
 export default Education; 

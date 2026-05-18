@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import './Publications.css';
 
 const publications = [
@@ -25,8 +26,13 @@ const publications = [
   }
 ];
 
-const Publications = () => (
+const Publications = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
+
+  return (
   <section id="publications" className="publications-section">
+    <div ref={revealRef} className="reveal">
     <h2 className="publications-title">Publications</h2>
     <div className="publications-list">
       {publications.map((pub, idx) => (
@@ -43,7 +49,9 @@ const Publications = () => (
         </div>
       ))}
     </div>
+    </div>
   </section>
-);
+  );
+};
 
 export default Publications; 

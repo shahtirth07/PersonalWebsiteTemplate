@@ -14,44 +14,17 @@ import Graphics from './components/Graphics'
 import FinResearch from './components/FinResearch'
 import Network3D from './components/Network3D'
 import MagneticCursor from './components/MagneticCursor'
-import TranslatePage from './components/TranslatePage'
 import './App.css'
 
 function App() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
-  const isTranslateRoute = window.location.pathname === '/translate';
 
   useEffect(() => {
     document.body.classList.toggle('dark-theme', theme === 'dark');
     localStorage.setItem('theme', theme);
   }, [theme]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    document.querySelectorAll('section').forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => {
-      document.querySelectorAll('section').forEach((section) => {
-        observer.unobserve(section);
-      });
-    };
-  }, []);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
@@ -59,27 +32,21 @@ function App() {
 
   return (
     <>
-      {isTranslateRoute ? (
-        <TranslatePage />
-      ) : (
-        <>
-          <Network3D />
-          <MagneticCursor />
-          <Navbar theme={theme} toggleTheme={toggleTheme} />
-          <About />
-          <Projects />
-          <FinResearch />
-          <Graphics />
-          <TechnicalSkills />
-          <Experience />
-          <Education />
-          <Publications />
-          <Awards />
-          <Leadership />
-          <Contact />
-          <Footer />
-        </>
-      )}
+      <Network3D />
+      <MagneticCursor />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <About />
+      <Projects />
+      <FinResearch />
+      <Graphics />
+      <TechnicalSkills />
+      <Experience />
+      <Education />
+      <Publications />
+      <Awards />
+      <Leadership />
+      <Contact />
+      <Footer />
     </>
   )
 }

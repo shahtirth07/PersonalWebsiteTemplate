@@ -54,24 +54,12 @@ html {
 .project-card:hover,
 .award-card:hover,
 .leadership-card:hover,
-.publication-card:hover {
-  transform: translateY(-10px) rotateX(2deg) rotateY(-2deg) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 245, 255, 0.2);
-}
-
-/* Glitch Effect on Hover */
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
-}
-
-.experience-card:hover,
-.project-card:hover {
-  animation: glitch 0.3s ease-in-out;
+.publication-card:hover,
+.card:hover,
+.graphics-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.25), 0 0 40px rgba(0, 245, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.45);
 }
 
 /* Animated Gradient Text */
@@ -81,7 +69,9 @@ html {
   100% { background-position: 0% 50%; }
 }
 
-h1, h2, h3 {
+h1:not(.hero-heading),
+h2:not(.hero-heading),
+h3:not(.hero-heading) {
   background: linear-gradient(90deg, #00d4ff, #00f5ff, #00d4ff, #00a8cc);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -123,40 +113,29 @@ h1, h2, h3 {
   animation: pulseGlow 2s ease-in-out infinite;
 }
 
-/* Scroll Reveal Animation */
+/* Section layout (scroll reveal handled by .reveal + useScrollReveal) */
 section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
   position: relative;
   z-index: 1;
 }
 
-/* Remove background from sections to prevent overlay bars */
-section:not(.fin-research-section) {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
 body.dark-theme section:not(.fin-research-section) {
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
 }
 
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Ensure cards are visible */
+/* Solid cards — no backdrop blur (blur breaks hover/cursor perception) */
 .experience-card,
 .project-card,
 .award-card,
 .leadership-card,
-.publication-card {
+.publication-card,
+.card,
+.graphics-card {
   background: var(--card-bg) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  pointer-events: auto;
+  isolation: isolate;
 }
 
 /* Enhanced Button Effects - Exclude dashboard section */

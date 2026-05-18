@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import './TechnicalSkills.css';
 import reactLogo from '../assets/react.svg';
 import githubLogo from '../assets/github.png';
@@ -129,8 +130,13 @@ const skills = [
   }
 ];
 
-const TechnicalSkills = () => (
+const TechnicalSkills = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
+
+  return (
   <section id="skills" className="skills-section">
+    <div ref={revealRef} className="reveal">
     <h2 className="skills-title">Technical Skills</h2>
     <div className="skills-list">
       {skills.map((group, idx) => (
@@ -151,7 +157,9 @@ const TechnicalSkills = () => (
         </div>
       ))}
     </div>
+    </div>
   </section>
-);
+  );
+};
 
 export default TechnicalSkills; 

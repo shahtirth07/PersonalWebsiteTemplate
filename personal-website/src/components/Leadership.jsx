@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import ieeeLogo from '../assets/IEEE_logo.svg.png';
 import csuChicoLogo from '../assets/california_state_university_chico_logo.jpeg';
 import alacrityLogo from '../assets/Alacrity.jpg';
@@ -52,8 +53,13 @@ const leadershipData = [
   }
 ];
 
-const Leadership = () => (
+const Leadership = () => {
+  const revealRef = useRef(null);
+  useScrollReveal(revealRef);
+
+  return (
   <section id="leadership" className="leadership-section">
+    <div ref={revealRef} className="reveal">
     <h2 className="leadership-title">Leadership & Volunteering</h2>
     <div className="leadership-list">
       {leadershipData.map((item, idx) => (
@@ -78,7 +84,9 @@ const Leadership = () => (
         </div>
       ))}
     </div>
+    </div>
   </section>
-);
+  );
+};
 
 export default Leadership; 

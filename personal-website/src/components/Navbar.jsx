@@ -44,7 +44,6 @@ const Navbar = ({ theme, toggleTheme }) => {
 
         {/* Desktop menu */}
         <div className="nav-links desktop-menu">
-          <a href="/translate" className="translate-cta" onClick={closeMenu}>Translate PDF</a>
           <a href="#about" className="nav-link" onClick={closeMenu}>About</a>
           <a href="#experience" className="nav-link" onClick={closeMenu}>Experience</a>
           <a href="#education" className="nav-link" onClick={closeMenu}>Education</a>
@@ -62,7 +61,6 @@ const Navbar = ({ theme, toggleTheme }) => {
 
         {/* Mobile menu */}
         <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
-          <a href="/translate" className="translate-cta mobile-translate-cta" onClick={closeMenu}>Translate PDF</a>
           <a href="#about" className="nav-link" onClick={closeMenu}>About</a>
           <a href="#experience" className="nav-link" onClick={closeMenu}>Experience</a>
           <a href="#education" className="nav-link" onClick={closeMenu}>Education</a>
