@@ -63,7 +63,7 @@ const Contact = () => {
             <a href="https://github.com/shahtirth07" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i>
             </a>
-            <a href="mailto:tshah@csuchico.edu">
+            <a href="mailto:shahtirth126@gmail.com">
               <i className="fas fa-envelope"></i>
             </a>
           </div>

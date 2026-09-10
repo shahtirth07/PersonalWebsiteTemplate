@@ -1,0 +1,65 @@
+.story {
+  position: relative;
+  z-index: 1;
+}
+
+/* A soft wash behind each chapter so consecutive scenes don't visually merge. */
+.story .chapter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 40%,
+    color-mix(in srgb, var(--chapter-accent) 7%, transparent) 0%,
+    transparent 70%
+  );
+}
+
+.story .chapter + .chapter {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Divider before the carried-over sections. */
+.story-extras {
+  position: relative;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+}
+
+.story-extras__intro {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6) 0;
+}
+
+.story-extras__eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+
+.story-extras__title {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.story-extras__lede {
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 42rem;
+}
+
+@media (max-width: 900px) {
+  .story-extras__intro {
+    padding: var(--space-10) var(--space-4) 0;
+  }
+}

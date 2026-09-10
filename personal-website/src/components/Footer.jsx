@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="social-links">
           <a 
-            href="https://www.linkedin.com/in/tirth-shah-16195b17a/" 
+            href="https://www.linkedin.com/in/shahtirth07/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link"
@@ -61,7 +61,7 @@ const Footer = () => {
           </a>
         </div>
         <a 
-          href="TirthResume.pdf"
+          href="Tirth_Shah_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="cv-download"

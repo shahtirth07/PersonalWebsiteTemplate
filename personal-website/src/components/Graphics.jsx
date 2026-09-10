@@ -69,7 +69,7 @@ const Graphics = () => {
   };
 
   return (
-    <section id="graphics" className="graphics-section">
+    <section id="graphics" className="graphics-section legacy-section">
       <div ref={revealRef} className="reveal">
       <h2 className="graphics-title">Computer Graphics Projects</h2>
       <p className="graphics-intro">

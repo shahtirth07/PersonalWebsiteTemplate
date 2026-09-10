@@ -2,7 +2,7 @@ import React from 'react';
 import './Hero.css';
 
 const NAME = 'Tirth Shah';
-const SUBTITLE = 'Software Development Engineer';
+const SUBTITLE = 'Backend Engineer & AI Systems Architect';
 const STAGGER_END_MS = 600;
 
 function getCharDelay(index, total) {

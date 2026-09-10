@@ -4,20 +4,33 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import datameticaLogo from '../assets/datametica_logo.jpeg';
 import incubeLogo from '../assets/incubedigital_logo.jpeg';
 import technikeinLogo from '../assets/technikien.jpeg';
-import chicostateLogo from '../assets/chicostateenterprises_logo.jpeg';
+import csuChicoLogo from '../assets/california_state_university_chico_logo.jpeg';
+import sapLogo from '../assets/sap_og.png';
 
 const experienceData = [
   {
-    company: 'Chico State Enterprises',
-    position: 'AI/ML and Network Engineer',
-    duration: 'May 2025 – Present',
+    company: 'California State University, Chico',
+    position: 'Research Assistant',
+    duration: 'Sep 2024 – Present',
     location: 'Chico, CA',
-    logo: chicostateLogo,
+    logo: csuChicoLogo,
     linkedin: 'https://www.csuchico.edu/index.shtml',
     responsibilities: [
-      'Spearheading modernization of SAP-UCC infrastructure serving 10K+ users across 30+ institutions by integrating intelligent workload routing and network monitoring pipelines, improving system scalability and fault tolerance.',
-      'Designed and deployed AI-driven anomaly detection models for service latency prediction using Python, TensorFlow, and Grafana-integrated dashboards, improving uptime and early-alert accuracy by 35%.',
-      'Implemented automated QA pipelines with synthetic data generation, ML-based regression validation, and continuous monitoring via Jenkins and Docker, reducing manual verification time by 60%.'
+      'Built RAG pipelines with grounding and evaluation frameworks for conversational AI, reducing hallucination rate by 40% on noisy real-world inputs.',
+      'Co-authored 4 peer-reviewed publications on conversational agents and intelligent systems; research presented at ASEE Zone 4 Conference.'
+    ]
+  },
+  {
+    company: 'SAP UCC Chico State',
+    position: 'Forward Deployed Software Engineer',
+    duration: 'May 2024 – May 2026',
+    location: 'Chico, CA',
+    logo: sapLogo,
+    linkedin: 'https://www.csuchico.edu/index.shtml',
+    responsibilities: [
+      'Architected and shipped a RAG-based agent for product discovery across 30+ institutional partners, embedding 50K+ catalog items with semantic search; improved query relevance by 35%.',
+      'Engineered a real-time notification pipeline using WebSockets, Redis pub/sub, and event-driven architecture; reduced latency from 2+ hours to under 500ms, serving 10K+ concurrent users.',
+      'Owned full-stack development of a React + Node.js microservices platform; coordinated with 30+ institutional stakeholders in bi-weekly requirements sessions to shape roadmap and ship production features within sprints.'
     ]
   },
   {
@@ -28,10 +41,10 @@ const experienceData = [
     logo: datameticaLogo,
     linkedin: 'https://www.linkedin.com/company/datametica-birds/posts/?feedView=all',
     responsibilities: [
-      'Led development of data migration tools for the Raven suite, adding support for DataStage, Informatica, and Alteryx, improving tool compatibility coverage by 60%.',
-      'Built advanced data generator tools in Groovy/Scala, generating 1M+ synthetic records and accelerating test cycles, cutting 30 hours/month in manual QA.',
-      'Supported CI/CD pipelines and Agile delivery across 5+ product teams; improved deployment frequency by 25% and reduced rollback incidents.',
-      'Developed Raven UI with Spring Boot, PostgreSQL, and React, enabling zero-downtime migrations and automating email alerts with monitoring, cutting stakeholder update latency by 80%.'
+      'Architected a TDD-driven data migration framework supporting DataStage, Informatica, and Alteryx; achieved 95%+ test coverage and improved downstream compatibility by 60%.',
+      'Built a scalable synthetic data generation pipeline in Groovy/Scala, generating 1M+ records per run, cutting QA cycle time by 30 hours/month and enabling parallel test execution.',
+      'Designed and maintained multi-team CI/CD infrastructure using GitHub Actions and Jenkins; improved deployment frequency by 25% and reduced production incident recovery time by 40%.',
+      'Led monolith-to-microservices migration using Spring Boot, PostgreSQL, and React; reduced API latency by 80% and enabled independent service scaling.'
     ]
   },
   {

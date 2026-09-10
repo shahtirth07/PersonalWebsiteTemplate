@@ -513,7 +513,7 @@ const FinResearch = () => {
   const currentDashboard = dashboards.find(d => d.id === selectedDashboard);
 
   return (
-    <section id="fin-research" className="fin-research-section">
+    <section id="fin-research" className="fin-research-section legacy-section">
       <div ref={revealRef} className="reveal">
       <h2 className="fin-research-title">Interactive Data Visualization Dashboards</h2>
       <p className="section-subtitle">

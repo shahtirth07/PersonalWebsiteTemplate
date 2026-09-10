@@ -107,25 +107,25 @@ const skills = [
   {
     category: 'Languages',
     items: [
-      'C/C++', 'Java', 'Groovy', 'Python', 'Rust', 'PL/SQL', 'JavaScript', 'C', 'MATLAB', 'Swift', 'Scala', 'Kotlin', 'Flutter', 'TypeScript', 'Dart'
+      'C/C++', 'Java', 'Groovy', 'Python', 'Go', 'Rust', 'PL/SQL', 'JavaScript', 'C', 'MATLAB', 'Swift', 'Scala', 'Kotlin', 'Flutter', 'TypeScript', 'Dart'
     ]
   },
   {
     category: 'Technologies & Frameworks',
     items: [
-      'Git', 'FastAPI', 'Reactjs', 'Rest APIs', 'Nodejs', 'Bootstrap', 'HTML+CSS', 'Tableau', 'Alteryx', 'AWS', 'Docker', 'Kubernetes', 'PySpark', 'Power BI', 'Postman', 'GCP', 'Springboot', 'Microservices', 'Next.js', 'Flask'
+      'Git', 'FastAPI', 'Reactjs', 'Rest APIs', 'GraphQL', 'WebSockets', 'Nodejs', 'Bootstrap', 'HTML+CSS', 'Tableau', 'Alteryx', 'AWS', 'EC2', 'S3', 'Lambda', 'SageMaker', 'Docker', 'Kubernetes', 'Terraform', 'Github Actions', 'Jenkins', 'Prometheus', 'Grafana', 'PySpark', 'Power BI', 'Postman', 'GCP', 'Springboot', 'Microservices', 'Next.js', 'Flask'
     ]
   },
   {
     category: 'Databases',
     items: [
-      'MYSQL', 'MongoDb', 'Chroma', 'Firebase', 'PostgreSQL', 'Redis', 'GraphQL', 'Neo4j', 'Supabase'
+      'MYSQL', 'MongoDb', 'MongoDB Atlas', 'Chroma', 'Firebase', 'PostgreSQL', 'Redis', 'Elasticsearch', 'Prisma', 'GraphQL', 'Neo4j', 'Supabase'
     ]
   },
   {
     category: 'Machine Learning',
     items: [
-      'CUDA', 'Numpy', 'Pandas', 'Transformers', 'Scikit learn', 'Matplotlib', 'Seaborn', 'Pytorch', 'Tensorflow', 'NLTK', 'boto3', 'SciPy', 'BeautifulSoup', 'NLP', 'Deep Learning', 'LangFlow', 'Requests', 'Pillow', 'LangChain', 'FAISS'
+      'CUDA', 'Numpy', 'Pandas', 'Transformers', 'BERT', 'RAG', 'Scikit learn', 'Matplotlib', 'Seaborn', 'Pytorch', 'Tensorflow', 'Apple MPS', 'NLTK', 'boto3', 'SciPy', 'BeautifulSoup', 'NLP', 'Deep Learning', 'LangFlow', 'Requests', 'Pillow', 'LangChain', 'browser-use', 'FAISS'
     ]
   }
 ];

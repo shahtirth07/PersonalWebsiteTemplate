@@ -1,0 +1,309 @@
+.chapter {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  isolation: isolate;
+}
+
+.chapter--right {
+  direction: rtl;
+}
+
+.chapter--right > * {
+  direction: ltr;
+}
+
+/* ---------- pinned visual ---------- */
+
+.chapter__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.chapter__scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Scenes are larger than the panel that pins them, so without a mask they get
+   sliced by hard edges: a vertical one where the sticky panel's overflow clips
+   them, and a horizontal one at each chapter boundary. Fade both instead, so
+   scenes dissolve into the page rather than ending on a cut line. */
+.chapter__scene {
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.chapter--left .chapter__scene {
+  mask-image:
+    linear-gradient(to right, #000 0%, #000 68%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+.chapter--right .chapter__scene {
+  mask-image:
+    linear-gradient(to left, #000 0%, #000 68%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+.chapter__scene canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chapter__heading {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-5);
+  max-width: min(34rem, 100%);
+  pointer-events: none;
+}
+
+/* The heading sits on top of a live scene, so it carries its own soft scrim
+   to stay readable against whatever the animation happens to be doing. */
+.chapter__heading::before {
+  content: '';
+  position: absolute;
+  inset: -10% -6%;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse at center,
+    var(--color-bg-primary) 0%,
+    color-mix(in srgb, var(--color-bg-primary) 88%, transparent) 40%,
+    color-mix(in srgb, var(--color-bg-primary) 55%, transparent) 65%,
+    transparent 85%
+  );
+}
+
+.chapter__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--chapter-accent, var(--color-accent));
+  margin: 0 0 var(--space-2);
+}
+
+.chapter__title {
+  font-family: var(--font-display);
+  /* Sized against the half-width column it lives in, not the full viewport,
+     so long words like "warehouse" can't outgrow the sticky panel. */
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.chapter__meta {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: var(--space-2) 0 0;
+}
+
+/* ---------- scrolling narrative ---------- */
+
+.chapter__beats {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.chapter__beat {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: var(--space-8) var(--space-6);
+}
+
+.chapter__beat-inner {
+  max-width: 32rem;
+  opacity: 0.28;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 600ms var(--ease-out),
+    transform 600ms var(--ease-out);
+  border-left: 2px solid transparent;
+  padding-left: var(--space-3);
+}
+
+.chapter__beat.is-active .chapter__beat-inner {
+  opacity: 1;
+  transform: translateY(0);
+  border-left-color: var(--chapter-accent, var(--color-accent));
+}
+
+.chapter__beat-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--chapter-accent, var(--color-accent));
+  margin-bottom: var(--space-1);
+}
+
+.chapter__beat-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.chapter__beat-body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ---------- stats / tags / links ---------- */
+
+.chapter__stats {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+}
+
+.chapter__stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--chapter-accent, var(--color-accent));
+  line-height: 1.1;
+}
+
+.chapter__stat-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-top: 0.15rem;
+}
+
+.chapter__tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+}
+
+.chapter__tags li {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.chapter__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.chapter__links a {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--chapter-accent, var(--color-accent));
+  padding-bottom: 2px;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.chapter__links a:hover {
+  opacity: 0.7;
+}
+
+/* ---------- narrow screens: visual becomes the backdrop ---------- */
+
+@media (max-width: 900px) {
+  .chapter,
+  .chapter--right {
+    grid-template-columns: minmax(0, 1fr);
+    direction: ltr;
+  }
+
+  .chapter__sticky,
+  .chapter__beats {
+    grid-column: 1;
+  }
+
+  .chapter__heading {
+    align-self: flex-start;
+    padding-top: calc(var(--space-10) + env(safe-area-inset-top, 0px));
+  }
+
+  .chapter__title {
+    font-size: var(--text-4xl);
+  }
+
+  /* Single column, so the scene spans the full width and only needs the
+     boundary fade, not the edge fade toward a narrative column. */
+  .chapter--left .chapter__scene,
+  .chapter--right .chapter__scene {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 8%,
+      #000 92%,
+      transparent 100%
+    );
+  }
+
+  .chapter__beat {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  /* Keep copy legible on top of the WebGL backdrop. */
+  .chapter__beat-inner {
+    background: color-mix(in srgb, var(--color-bg-primary) 82%, transparent);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    border-left-width: 2px;
+    border-radius: 14px;
+    padding: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter__beat-inner {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

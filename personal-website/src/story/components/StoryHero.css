@@ -1,0 +1,201 @@
+.hero-story {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-8) var(--space-6);
+  overflow: hidden;
+}
+
+.hero-story__scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-story__scene canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Keeps the headline readable over the constellation. */
+.hero-story::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+      ellipse at 30% 50%,
+      rgba(11, 11, 15, 0.86) 0%,
+      rgba(11, 11, 15, 0.45) 45%,
+      transparent 72%
+    ),
+    linear-gradient(to bottom, transparent 70%, var(--color-bg-primary) 100%);
+}
+
+.hero-story__content {
+  position: relative;
+  z-index: 2;
+  max-width: 46rem;
+}
+
+.hero__location {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-3);
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-size: var(--text-6xl);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin: 0;
+  color: var(--color-text-primary);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.hero__name span {
+  display: inline-block;
+  will-change: transform;
+}
+
+.hero__role {
+  position: relative;
+  height: 2.1em;
+  margin: var(--space-3) 0 0;
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  color: var(--color-text-primary);
+}
+
+.hero__role-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(0.5em);
+  transition:
+    opacity 500ms var(--ease-out),
+    transform 500ms var(--ease-out);
+}
+
+.hero__role-item.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__summary {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: var(--space-3) 0 0;
+  max-width: 40rem;
+  text-wrap: pretty;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.hero__cta {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  padding: 0.7rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    background var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.hero__cta:hover {
+  border-color: var(--color-accent);
+  background: rgba(108, 99, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.hero__cta--primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.hero__cta--primary:hover {
+  background: #7d75ff;
+}
+
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-5);
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.hero__scroll i {
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  animation: hero-scroll-pulse 2s var(--ease-out) infinite;
+}
+
+@keyframes hero-scroll-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleY(0.6);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-story {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .hero__name {
+    font-size: var(--text-5xl);
+  }
+
+  .hero__summary {
+    font-size: var(--text-base);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll i {
+    animation: none;
+  }
+}

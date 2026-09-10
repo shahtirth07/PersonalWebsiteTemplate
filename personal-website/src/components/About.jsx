@@ -21,9 +21,10 @@ const About = () => {
         <div className="about-content">
           <Hero />
           <p className="about-description">
-            I'm a Software Development Engineer with expertise in building intelligent systems and scalable infrastructure. 
-            Currently pursuing my Master's in Computer Science at California State University, Chico, I combine academic knowledge 
-            with practical experience to create innovative solutions and modernize enterprise systems.
+            I'm a backend engineer and AI systems architect with 3+ years building scalable services and agentic AI systems.
+            My work centers on distributed systems in Go, Python, and Node.js, multi-agent orchestration, and production
+            infrastructure. I'm also a published researcher on conversational AI and NLP systems, currently completing my
+            Master's in Computer Science at California State University, Chico.
           </p>
           <div className="about-links">
             <a href="#projects" className="about-link">View My Work</a>
